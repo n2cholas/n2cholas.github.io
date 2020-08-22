@@ -1,8 +1,8 @@
 # Setup
 title:               Nicholas Vadivelu
-tagline:             'test'
-description:         'test'
-url:                 https://n2cholas.github.com
+# tagline:             'test'
+# description:         'test'
+url:                 'https://n2cholas.github.io/'
 baseurl:             ''
 paginate:            5
 permalink:           pretty
