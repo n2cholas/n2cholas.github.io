@@ -1,7 +1,7 @@
 # Setup
 title:               Nicholas Vadivelu
-tagline:             ''
-description:         ''
+tagline:             'test'
+description:         'test'
 url:                 https://n2cholas.github.com
 baseurl:             ''
 paginate:            5
