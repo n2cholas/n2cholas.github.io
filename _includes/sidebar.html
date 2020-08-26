@@ -1,14 +1,14 @@
 <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
      styles, `#sidebar-checkbox` for behavior. -->
-<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox" checked>
 
 <!-- Toggleable sidebar -->
 <div class="sidebar" id="sidebar">
-  <div class="sidebar-item">
-    <p>Welcome to my site!</p>
-  </div>
-
   <nav class="sidebar-nav">
+    <div class="sidebar-item">
+      <p>Welcome to my site!</p>
+    </div>
+
     <a class="sidebar-nav-item{% if page.title == 'Home' %} active{% endif %}" href="{{ '/' | absolute_url }}">Home</a>
 
     {% comment %}
@@ -25,7 +25,7 @@
       {% endif %}
     {% endfor %}
 
-    <a class="sidebar-nav-item" href="https://twitter.com/nicvadivelu">Twitter</a>
+    <a class="sidebar-nav-item" href="https://twitter.com/nicvadivelu" target="_blank">Twitter</a>
   </nav>
 
   <div class="sidebar-item">
