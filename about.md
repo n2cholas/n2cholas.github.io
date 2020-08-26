@@ -3,27 +3,17 @@ layout: page
 title: About
 ---
 
-<p class="message">
-  Hey there! This page is included as an example. Feel free to customize it for your own use upon downloading. Carry on!
-</p>
+Welcome to my blog! I'm a student interested in **machine learning** and
+**programming languages**. Currently, I'm making machine learning inference
+faster at **NVIDIA** ([TensorRT](https://developer.nvidia.com/tensorrt)) and
+studying Computer Science & Statistics at the **University of Waterloo**.
 
-In the novel, *The Strange Case of Dr. Jeykll and Mr. Hyde*, Mr. Poole is Dr. Jekyll's virtuous and loyal butler. Similarly, Poole is an upstanding and effective butler that helps you build Jekyll themes. It's made by [@mdo](https://twitter.com/mdo).
+Previously, I did deep learning research in collaborative self-driving at
+**Uber ATG**, helped improve the neural network optimization algorithm
+[K-FAC](https://github.com/tensorflow/kfac) at **Google Brain**, and developed
+data-driven models to identify fraud at **John Hancock Financial**.
 
-There are currently two themes built on Poole:
-
-* [Hyde](http://hyde.getpoole.com)
-* [Lanyon](http://lanyon.getpoole.com)
-
-Learn more and contribute on [GitHub](https://github.com/poole).
-
-## Setup
-
-Some fun facts about the setup of this project include:
-
-* Built for [Jekyll](https://jekyllrb.com)
-* Developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
-* Coded with [Atom](https://atom.io)
-
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/poole/issues/new) or [ask me on Twitter](https://twitter.com/mdo).
-
-Thanks for reading!
+You can reach me at `nicholas.vadivelu [at] gmail [dot] com`. If you love
+tidbits of technical info, follow me on
+[twitter](https://twitter.com/nicvadivelu). I also love teaching--check out
+some of my data science [workshops](https://github.com/n2cholas/dsc-workshops)!
