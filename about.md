@@ -8,7 +8,7 @@ Welcome to my blog! I'm a student interested in **machine learning** and
 faster at **NVIDIA** ([TensorRT](https://developer.nvidia.com/tensorrt)) and
 studying Computer Science & Statistics at the **University of Waterloo**.
 
-Previously, I did deep learning research in collaborative self-driving at
+Previously, I did deep learning research on collaborative self-driving at
 **Uber ATG**, helped improve the neural network optimization algorithm
 [K-FAC](https://github.com/tensorflow/kfac) at **Google Brain**, and developed
 data-driven models to identify fraud at **John Hancock Financial**.
