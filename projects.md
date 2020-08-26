@@ -3,7 +3,7 @@ layout: page
 title: Projects
 ---
 
-This page is out of date! Will be updated with recent projects soon.
+This page is out of date! Will be updated with my recent projects soon.
 
 
 <hr>
