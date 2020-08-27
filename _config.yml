@@ -2,7 +2,7 @@
 title:               Nicholas Vadivelu
 # tagline:             'test'
 # description:         'test'
-url:                 'http://nicholasvadivelu.com/'
+url:                 'https://nicholasvadivelu.com/'
 baseurl:             ''
 paginate:            5
 permalink:           pretty
