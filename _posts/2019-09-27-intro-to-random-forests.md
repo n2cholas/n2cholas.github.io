@@ -5,7 +5,7 @@ title: Introduction to Random Forests
 
 Through this workshop you will learn how to quickly model and understand datasets using scikit-learn. Topics will include a basic introduction to using decisions trees and random forests, understanding feature importance, identifying model weaknesses, explaining your model, and more.
 
-This article contains some high level explanations of the code not covered in the workshop, but does not contain all the details of the main workshop. [Here](https://youtu.be/ANdn3CF4bss) is a recording of the main workshop, [here](https://docs.google.com/presentation/d/14e5iw-AswCbli4YUHZI1d9OYu4csM2nyxv84Ytu68QY) are the slides, and [here](https://youtu.be/ANdn3CF4bss) is a colab link to run all the code.
+This article contains some high level explanations of the code not covered in the workshop, but does not contain all the details of the main workshop. [Here](https://youtu.be/ANdn3CF4bss) is a recording of the main workshop, [here](https://docs.google.com/presentation/d/14e5iw-AswCbli4YUHZI1d9OYu4csM2nyxv84Ytu68QY) are the slides, and [here](https://colab.research.google.com/github/n2cholas/dsc-workshops/blob/master/Random_Forests_Workshop_V2.ipynb) is a colab link to run all the code.
 
 Many of the interpretation techniques were taken from the [fast.ai ML course](http://course18.fast.ai/ml). Check it out!!
 
