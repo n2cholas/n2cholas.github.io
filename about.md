@@ -12,8 +12,8 @@ Previously, I did deep learning research on collaborative self-driving at
 **Uber ATG**, helped improve the neural network optimization algorithm
 [K-FAC](https://github.com/tensorflow/kfac) at **Google Brain**, and developed
 data-driven models to identify fraud at **John Hancock Financial**. I've also
-worked as a Research Assistant for Professor Lin Tan in deep learning-driven
-software analysis and Professor Pascal Poupart on neural network parameter
+worked as a Research Assistant for **Prof. Lin Tan** in deep learning-driven
+software analysis and **Prof. Pascal Poupart** on neural network parameter
 learning.
 
 If you love tidbits of technical info, follow me on
