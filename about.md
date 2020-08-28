@@ -11,9 +11,11 @@ studying Computer Science & Statistics at the **University of Waterloo**.
 Previously, I did deep learning research on collaborative self-driving at
 **Uber ATG**, helped improve the neural network optimization algorithm
 [K-FAC](https://github.com/tensorflow/kfac) at **Google Brain**, and developed
-data-driven models to identify fraud at **John Hancock Financial**.
+data-driven models to identify fraud at **John Hancock Financial**. I've also
+worked as a Research Assistant for Professor Lin Tan in deep learning-driven
+software analysis and Professor Pascal Poupart on neural network parameter
+learning.
 
-You can reach me at `nicholas.vadivelu [at] gmail [dot] com`. If you love
-tidbits of technical info, follow me on
-[twitter](https://twitter.com/nicvadivelu). I also love teaching--check out
-some of my data science [workshops](https://github.com/n2cholas/dsc-workshops)!
+If you love tidbits of technical info, follow me on
+[twitter](https://twitter.com/nicvadivelu). Feel free to reach out through
+email: `nicholas.vadivelu [at] gmail [dot] com`--I love to chat!
