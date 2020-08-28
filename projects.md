@@ -37,7 +37,7 @@ BeautifulSoup for Python. I then cleaned and analyzed various properties about
 pokemon with respect to their tiers in a Jupyter Notebook. Finally, I built a
 regression model using Scikit-learn.
 
-<p><a class="more-link" href="https://github.com/n2cholas/pokemon-analysis" target="_blank"><i class="fa fa-external-link"></i>View on GitHub</a>&nbsp; &nbsp; &nbsp;<a class="more-link" href="https://medium.com/@nicholas.vadivelu/lessons-learned-from-analyzing-competitive-pokemon-82a9609dcd79" target="_blank"><i class="fa fa-external-link"></i>See my Article on Medium</a> </p>
+<p><a class="more-link" href="https://github.com/n2cholas/pokemon-analysis" target="_blank"><i class="fa fa-external-link"></i>View on GitHub</a>&nbsp; &nbsp; &nbsp;<a class="more-link" href="https://nicholasvadivelu.com/2018/09/06/competitive-pokemon/" target="_blank"><i class="fa fa-external-link"></i>Read about Lessons I Learned</a> </p>
 
 
 <hr>
