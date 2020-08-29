@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Communicating Data Science to Professionals
+comments: True
 ---
 
 This summer, I had the pleasure of working at John Hancock Financial as a Data Science Intern. I worked with data scientists, actuaries, clinicians, and fraud analysts to build fraud detection models for long-term care insurance. Though I picked up many technical skills, I learned the most about working with people of different educational backgrounds. Here are 5 of my takeaways about communicating data science to professionals:
