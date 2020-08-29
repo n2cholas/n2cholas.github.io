@@ -1923,3 +1923,6 @@ pd.pivot_table(df, index='tier', columns='type_1', values='bst',
 </div>
 
 
+## Conclusion
+
+Through this workshop, we've seen an overview of pandas and how it can be useful for data preprocessing. Next, we can use these skills to analyze and model our data using [random forests in scikit-learn](https://nicholasvadivelu.com/2019/09/27/intro-to-random-forests/).

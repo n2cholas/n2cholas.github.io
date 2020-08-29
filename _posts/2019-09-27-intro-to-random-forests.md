@@ -5,9 +5,9 @@ title: Introduction to Random Forests
 
 Through this workshop you will learn how to quickly model and understand datasets using scikit-learn. Topics will include a basic introduction to using decisions trees and random forests, understanding feature importance, identifying model weaknesses, explaining your model, and more.
 
-This article contains some high level explanations of the code not covered in the workshop, but does not contain all the details of the main workshop. [Here](https://youtu.be/ANdn3CF4bss) is a recording of the main workshop, [here](https://docs.google.com/presentation/d/14e5iw-AswCbli4YUHZI1d9OYu4csM2nyxv84Ytu68QY) are the slides, and [here](https://colab.research.google.com/github/n2cholas/dsc-workshops/blob/master/Random_Forests_Workshop_V2.ipynb) is a colab link to run all the code.
+If you are not familiar with pandas, check out [this](https://nicholasvadivelu.com/2019/09/27/intro-to-pandas/) post first. This article contains some high level explanations of the code not covered in the live workshop, but skips some examples given in the main presentation. [Here](https://youtu.be/ANdn3CF4bss) is a recording of the main workshop, [here](https://docs.google.com/presentation/d/14e5iw-AswCbli4YUHZI1d9OYu4csM2nyxv84Ytu68QY) are the slides, and [here](https://colab.research.google.com/github/n2cholas/dsc-workshops/blob/master/Random_Forests_Workshop_V2.ipynb) is a colab link to run all the code.
 
-Many of the interpretation techniques were taken from the [fast.ai ML course](http://course18.fast.ai/ml). Check it out!!
+Many of the model interpretation techniques were taken from the [fast.ai ML course](http://course18.fast.ai/ml). Check it out!!
 
 Indented plain-text blocks in this article contain outputs from the previous code block.
 
@@ -26,7 +26,7 @@ Data munging/wrangling is the process of transforming your raw data into a form 
 
 In the "real world", you will need to do much more than is shown below. There are numerous Kaggle Kernels demonstrating in depth data cleaning. For the purposes of this workshop, we will do (less than) the bare minimum for two reasons:
 
-1. We are using a relatively clean dataset (very few data oddities).
+1. We are using a relatively clean dataset (with few data oddities).
 2. Our model analysis will tell us where to focus our data cleaning and feature engineering efforts.
 3. This workshop is only an hour long :P.
 
@@ -1081,7 +1081,7 @@ dtype: object</code>
 </div>
 
 
-Most of the data is of type "object". Typically, this is a String but could also be other Python objects, such as lists or dicts. Just based on the names, it looks like these are all categorical features. Let's check this by looking at the unique values in each column.
+Most of the data is of type `object`. In general, this will be a Python string but could also be other Python objects, such as lists or dicts. Just based on the names, it looks like these are all categorical features. Let's check this by looking at the unique values in each column.
 
 
 ```python
@@ -2594,11 +2594,11 @@ except TypeError:
 ## Standard Process for Quick RF Development:
 
 1.	Using scoring metric (provided or decided), create a scoring function (training + validation).
-2.	Create validation set with same properties as test set.
+2.	Create a validation set with same properties as test set.
 3.	Run a quick random forest on the data with minimal alterations.
 4.	Plot feature importance, plot the features, and learn about those features (domain knowledge).
-5.	Use natural breakpoint to remove unimportant features then plot again.
-6.	Now, look at data carefully and encode important things better.
+5.	Use a natural breakpoint to remove unimportant features then plot again.
+6.	Look at data carefully and encode important features better.
 7.	Using heirachical clustering to remove redundant features (scipy)
 8.	For interpretation, use partial dependence plots from PDP.
 9.	Use Tree Interpreter to explain individual predictions.

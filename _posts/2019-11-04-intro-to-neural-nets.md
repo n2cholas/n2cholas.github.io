@@ -5,7 +5,7 @@ title: Introduction to Neural Networks in TensorFlow 2
 
 In this workshop, we will learn about Neural Networks and how to build them in TensorFlow 2.
 
-This article provides a summary of the main workshop, which you can watch [here](https://youtu.be/a_RkE897-Kw). [Here](https://colab.research.google.com/github/n2cholas/dsc-workshops/blob/master/Introduction_to_Neural_Networks_with_TensorFlow_2.ipynb) is a colab link to run all the code. The colab and article have a section on metrics, which was not included in the video.
+This article provides a summary of the main workshop, which you can watch [here](https://youtu.be/a_RkE897-Kw). [Here](https://colab.research.google.com/github/n2cholas/dsc-workshops/blob/master/Introduction_to_Neural_Networks_with_TensorFlow_2.ipynb) is a colab link to run all the code. The colab and article have a section on metrics, which was not covered in the live session. 
 
 Indented plain-text blocks in this article contain outputs from the previous code block.
 
@@ -1612,7 +1612,7 @@ Epoch 1 Step 200 Loss: 0.4001629453897476 Accuracy: 0.8896093964576721</code>
 </div>
 
 
-Of course, TensorFlow already has a way to do this:
+Of course, TensorFlow already has a way to do this. One key difference is `tf.keras.metrics` accumulate a sum and a count instead of keeping a list of all past values (more details [here](https://www.tensorflow.org/api_docs/python/tf/keras/metrics)).
 
 
 ```python
@@ -1711,18 +1711,15 @@ These APIs are highly performant and robust, so you don't have to worry about me
 
 
 
-We covered the fundamentals of neural networks and of TensorFlow 2.0. This workshop emphasized the fundamentals and programming aspects instead of best pratices (necessarily). 
+We covered the fundamentals of neural networks and of TensorFlow 2. Note we emphasized the fundamentals and implementing them from scratch. You should look at other sources online for more idiomatic code, such as the [keras examples page](https://keras.io/examples/).
 
 Here are some things I'd recommend checking out next for Neural Networks:
-*   Backpropogation (how are the gradients computed? spoiler: it's basically chain rule)
+*   Backpropogation (how are the gradients computed? spoiler: it's chain rule!)
 *   Convolutional and Recurrent Neural Networks 
 *   Regularization (my model's still overfitting! how do I fix that?)
 
-Here are some things I'd recommend checking out for TensorFlow 2.0:
+Here are some things I'd recommend checking out for TensorFlow 2:
 *   The various layers, metrics, losses, optimizers, and activation functions offered.
 *   Functional API for building models
 *   Using `@tf.function` to speed up your code
 *   Distributed Training with tf.distribute
-
-
-
