@@ -35,4 +35,4 @@ After going through those courses, congrats! You have the skills you need to do 
 
 ## Next Steps
 
-Since this guide is designed for absolute beginners, I did not include any resources for rigorously learning about the math behind data science, which is another crucial component to becoming a great data scientist. To stay true to the purpose of this post, I won’t provide any more links--there are tons of high-quality resources just a google search away. Good luck!
+Since this guide is designed for absolute beginners, I did not include any resources for rigorously learning about the math behind data science. While theory is crucial to becoming a great data scientist, I find theory often becomes more engaging and intuitive after being motivated by some hands-on experience. To stay true to the purpose of this post, I won’t provide any links to learn theory--there are tons of high-quality resources just a google search away. Good luck!
