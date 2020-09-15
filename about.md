@@ -18,4 +18,5 @@ learning.
 
 If you love tidbits of technical info, follow me on
 [twitter](https://twitter.com/nicvadivelu). Feel free to reach out through
-email: `nicholas.vadivelu [at] gmail [dot] com`--I love to chat!
+email: `nicholas.vadivelu [at] gmail [dot] com` or book some time with me
+through [calendly](https://calendly.com/nicv)--I love to chat!
