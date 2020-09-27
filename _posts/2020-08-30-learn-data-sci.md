@@ -13,7 +13,7 @@ This list of resources is designed for someone who has completed high school and
 2. Check out Kaggle for introductory [micro-courses](https://www.kaggle.com/learn/overview). I suggest the [Python](https://www.kaggle.com/learn/python), [Pandas](https://www.kaggle.com/learn/pandas), [Data Visualization](https://www.kaggle.com/learn/data-visualization), and [Intro to ML](https://www.kaggle.com/learn/intro-to-machine-learning) courses.
 3. Check out the [fast.ai](https://course.fast.ai/) course for a broad, practical introduction to deep learning.
 4. Do some projects (the courses have great suggestions)!
-5. Apply to internships/jobs. Here’s a [resume guide](https://docs.google.com/document/d/1rIcPf0HxjhHT9nZPqRGgzvPDn1CoFBWDsfJ-jpbVQyw/edit?usp=sharing) and [interview guide](https://docs.google.com/document/d/1digEGu1feM6hUmtX6Nas-_J_q-nI5ZjMMTnPHTGc1jA/edit?usp=sharing).
+5. Apply to internships/jobs. Here’s a [resume checklist](https://github.com/n2cholas/resume-checklist), a more detailed [resume guide](https://docs.google.com/document/d/1rIcPf0HxjhHT9nZPqRGgzvPDn1CoFBWDsfJ-jpbVQyw/edit?usp=sharing), and an [interview guide](https://docs.google.com/document/d/1digEGu1feM6hUmtX6Nas-_J_q-nI5ZjMMTnPHTGc1jA/edit?usp=sharing).
 
 
 ## Overview of Data Science & Career Options
@@ -30,7 +30,7 @@ Before spending too much time on Kaggle, take a look at fast.ai. The [practical 
 
 ## Internships & Jobs
 
-After going through those courses, congrats! You have the skills you need to do solid data science work. The courses I’ve listed provide great suggestions for next steps and projects to pursue to demonstrate your skills. With these projects in your portfolio, you can apply to data science & machine learning jobs/internships. [Here](https://docs.google.com/document/d/1rIcPf0HxjhHT9nZPqRGgzvPDn1CoFBWDsfJ-jpbVQyw/edit?usp=sharing) is a guide to creating a great resume and [here](https://docs.google.com/document/d/1digEGu1feM6hUmtX6Nas-_J_q-nI5ZjMMTnPHTGc1jA/edit?usp=sharing) are some tips for acing technical interviews (both made by experienced UWaterloo students!). The data science technical interview tips are most relevant for data science internships, but the rest is relevant to all types of tech internships and jobs.
+After going through those courses, congrats! You have the skills you need to do solid data science work. The courses I’ve listed provide great suggestions for next steps and projects to pursue to demonstrate your skills. With these projects in your portfolio, you can apply to data science & machine learning jobs/internships. Your resume should tick off every box on this [checklist](https://github.com/n2cholas/resume-checklist), no questions. [Here](https://docs.google.com/document/d/1rIcPf0HxjhHT9nZPqRGgzvPDn1CoFBWDsfJ-jpbVQyw/edit?usp=sharing) is a more detailed (and perhaps subjective) guide to creating a great resume and [here](https://docs.google.com/document/d/1digEGu1feM6hUmtX6Nas-_J_q-nI5ZjMMTnPHTGc1jA/edit?usp=sharing) are some tips for acing technical interviews (both made by experienced UWaterloo students!). The data science technical interview tips are most relevant for data science internships, but the rest is relevant to all types of tech internships and jobs.
 
 
 ## Next Steps
