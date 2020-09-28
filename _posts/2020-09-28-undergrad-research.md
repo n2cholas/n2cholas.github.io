@@ -135,7 +135,7 @@ During the firt term of my third year, I did my second URA. I did not email any 
 </p>
 </details>
 <details>
-<summary> Summary of links </summary>
+<summary> Collection of links </summary>
 <br><p>
 Below are the links referenced in this article in order of appearance. Note, most of these links are just examples to help you find resources relevant to your area of interest!
 </p>
