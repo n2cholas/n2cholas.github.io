@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introduction to Neural Networks in TensorFlow 2
-comments: True
+comments: False
 ---
 
 In this workshop, we will learn about Neural Networks and how to build them in TensorFlow 2.
