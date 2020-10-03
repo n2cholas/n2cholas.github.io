@@ -18,7 +18,7 @@ Collection of useful links/resources/stuff.
 - [VSCode Live Share](https://code.visualstudio.com/blogs/2017/11/15/live-share), a real game-changer for pair programming.
 - [Typer](https://typer.tiangolo.com/) a super underrated python CLI building tool. For simple applications (i.e. everything I write), you can't get more succinct than this library.
 
-## Stuff (partly) by me
+## Resources I've helped put together:
 - [First Steps for Learning Data Science](https://nicholasvadivelu.com/2020/08/30/learn-data-sci/)
 - [How to get your first Undergrad Research Assistantship](https://nicholasvadivelu.com/2020/09/28/undergrad-research/)
 - Co-op:
