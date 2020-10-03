@@ -5,7 +5,8 @@ title: About
 
 Welcome to my blog! I'm a student interested in **machine learning** and
 **programming languages**. Currently, I'm making machine learning inference
-faster at **NVIDIA** ([TensorRT](https://developer.nvidia.com/tensorrt)) and
+faster at **NVIDIA** ([TensorRT](https://developer.nvidia.com/tensorrt)), 
+conducting research in differential privacy with **Prof. Gautam Kamath**, and
 studying Computer Science & Statistics at the **University of Waterloo**.
 
 Previously, I did deep learning research on collaborative self-driving at
