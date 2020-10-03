@@ -1,6 +1,6 @@
 ---
-layout: hidden-page
-title: Useful
+layout: page
+title: Resources
 ---
 
 Collection of useful links/resources/stuff.
