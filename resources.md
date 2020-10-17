@@ -3,7 +3,7 @@ layout: page
 title: Resources
 ---
 
-Collection of useful/cool links/resources/stuff.
+Collection of useful/cool links/resources/stuff. If there's anything you think I should check out, let me know via [twitter](http://twitter.com/nicvadivelu) or [email](https://nicholasvadivelu.com/about/)!
 
 ## Misc.
 - [LaTeX Design Patterns](https://www.gleave.me/post/latex-design-patterns/), made me much more productive in LaTeX.
