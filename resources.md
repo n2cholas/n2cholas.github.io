@@ -29,10 +29,14 @@ Collection of useful/cool links/resources/stuff. If there's anything you think I
 - [Datacrunch](https://course.fast.ai/start_datacrunch.html), v100s for $0.45/hr???
 - [Chocolatey](https://chocolatey.org/docs/why), windows package manager.
 - [Altair](https://altair-viz.github.io/gallery/index.html#interactive-charts), declarative visualizations in Python. Makes interactive plots particularly easy.
-- [Finding a Good Learning Rate](https://sgugger.github.io/how-do-you-find-a-good-learning-rate.html)
-- [1 Cycle Learning Rate Policy](https://sgugger.github.io/the-1cycle-policy.html#the-1cycle-policy)
+- [Finding a Good Learning Rate](https://sgugger.github.io/how-do-you-find-a-good-learning-rate.html), [1 Cycle Learning Rate Policy](https://sgugger.github.io/the-1cycle-policy.html#the-1cycle-policy) for training neural networks.
+- [Scalene](https://github.com/emeryberger/scalene), the best python CPU/memory profiler out there.
+- [JupyterPlot](https://lvwerra.github.io/jupyterplot/), plots updated in real time in jupyter.
+- [Herbie](https://herbie.uwplse.org/), automatically find and fix floating point issues (stability).
+- [Einops](https://arogozhnikov.github.io/einops/pytorch-examples.html), write more expressive tensor manipulations.
 
 ## Courses
+- [Advanced ML/DL Courses](https://www.reddit.com/r/MachineLearning/comments/fdw0ax/d_advanced_courses_update/) (advanced meaning PhD level)
 - [Missing Semester](https://missing.csail.mit.edu/), a course from MIT that teaches a bunch of useful stuff you'd wish you'd learned sooner, like shell (+ scripting), editors, data processing, version control (git), debugging, and more.
 - [Problem-Solving for CS Technical Interviews](https://web.stanford.edu/class/cs9/)
 - [Robust Statistics](https://youtu.be/txnftFoHHbo)
@@ -73,6 +77,7 @@ Collection of useful/cool links/resources/stuff. If there's anything you think I
 - [Every Complex DataFrame Manipulation, Explained & Visualized Intuitively](https://medium.com/analytics-vidhya/every-dataframe-manipulation-explained-visualized-intuitively-dbeea7a5529e)
 - [Auto formatters for Python](https://medium.com/3yourmind/auto-formatters-for-python-8925065f9505), comparison of the major formatters (autopep8, yapf, black) for python. I'm very particular about my code format, so without an auto-formatter, I waste a lot of time getting it right. My personal preference is yapf(google), but black is considered the "best".
 - [Silvia Sellán](http://dgp.toronto.edu/~sgsellan/) posted/wrote some resources about choosing and applying to grad school.
+- [John Schulman's opinionated guide to ML research](http://joschu.net/blog/opinionated-guide-ml-research.html)
 
 ## Little Gems
 - [Disposable Email Addresses](http://guerrillamail.com/inbox)
@@ -85,6 +90,8 @@ Collection of useful/cool links/resources/stuff. If there's anything you think I
 - [Anatomy of Matplotlib](https://github.com/matplotlib/AnatomyOfMatplotlib)
 - [Copy-pasting in TMUX](https://www.rushiagr.com/blog/2016/06/16/everything-you-need-to-know-about-tmux-copy-pasting-ubuntu/)
 - [Stein's Paradox](https://twitter.com/i/web/status/1298274201682325509), fun statistics paradox.
+- [Latency numbers every programmer should know](http://cheat.sh/latency)
+- [Get notified at the end of your python script](https://towardsdatascience.com/how-to-get-a-notification-when-your-training-is-complete-with-python-2d39679d5f0f).
 
 ## Resources I've helped put together:
 - [First Steps for Learning Data Science](https://nicholasvadivelu.com/2020/08/30/learn-data-sci/)
