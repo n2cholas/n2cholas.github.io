@@ -72,6 +72,7 @@ Collection of useful/cool links/resources/stuff. If there's anything you think I
 - [Object Detection from 9 FPS to 650 FPS](https://paulbridger.com/posts/video_analytics_pipeline_tuning/), accelerating deep learning inference.
 - [Every Complex DataFrame Manipulation, Explained & Visualized Intuitively](https://medium.com/analytics-vidhya/every-dataframe-manipulation-explained-visualized-intuitively-dbeea7a5529e)
 - [Auto formatters for Python](https://medium.com/3yourmind/auto-formatters-for-python-8925065f9505), comparison of the major formatters (autopep8, yapf, black) for python. I'm very particular about my code format, so without an auto-formatter, I waste a lot of time getting it right. My personal preference is yapf(google), but black is considered the "best".
+- [Silvia Sellán](http://dgp.toronto.edu/~sgsellan/) posted/wrote some resources about choosing and applying to grad school.
 
 ## Little Gems
 - [Disposable Email Addresses](http://guerrillamail.com/inbox)
