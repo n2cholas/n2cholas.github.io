@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Lessons Learned from Analyzing Competitive Pokemon
-comments: False
+comments: True
 ---
 
 Competitive Pokemon is a turn-by-turn multiplayer game where you build a team

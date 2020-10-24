@@ -3,7 +3,7 @@ layout: page
 title: Resources
 ---
 
-Collection of useful/cool links/resources/stuff. If there's anything you think I should check out, let me know via [twitter](http://twitter.com/nicvadivelu) or [email](https://nicholasvadivelu.com/about/)!
+Collection of useful/cool links/resources/stuff. If there's anything you think I should check out, leave a comment below!
 
 ## Misc.
 - [LaTeX Design Patterns](https://www.gleave.me/post/latex-design-patterns/), made me much more productive in LaTeX.
@@ -83,7 +83,7 @@ Collection of useful/cool links/resources/stuff. If there's anything you think I
 - [Disposable Email Addresses](http://guerrillamail.com/inbox)
 - [Libby](https://libbyapp.com/welcome), sign out ebooks and audiobooks with your library card.
 - [`difflib.get_close_matches`](https://twitter.com/pybites/status/1301956083930607617), return "good enough" matches for strings.
-- [`jax.mask` let's you use ragged arrays with vmap!](https://twitter.com/remilouf/status/1306180863101743109?s=20)
+- [`jax.mask` lets you use ragged arrays with vmap!](https://twitter.com/remilouf/status/1306180863101743109?s=20)
 - [Sum numbers in order of increasing magnitude for better accuracy](https://twitter.com/i/web/status/1302301255700627456)
 - [Git Autostash](https://www.praqma.com/stories/git-autostash/) for pulling even with local changes.
 - [Include YAMLs in other YAMLs](https://gist.github.com/joshbode/569627ced3076931b02f) (for Python).
@@ -101,3 +101,16 @@ Collection of useful/cool links/resources/stuff. If there's anything you think I
   - [Detailed Resume Tips](https://docs.google.com/document/d/1rIcPf0HxjhHT9nZPqRGgzvPDn1CoFBWDsfJ-jpbVQyw/edit?usp=sharing)
   - [Tech Interview Tips](https://docs.google.com/document/d/1digEGu1feM6hUmtX6Nas-_J_q-nI5ZjMMTnPHTGc1jA/edit?usp=sharing)
   - [Networking Tips](https://docs.google.com/document/d/1QtuCTKy-nFEoBr8fBwphpxIBYGKOoISjtl9GyDA66y8/edit?usp=sharing) (WIP)
+
+
+<br>
+<div class="related">
+  <script src="https://utteranc.es/client.js"
+          repo="n2cholas/n2cholas.github.io"
+          issue-term="pathname"
+          label="comment"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+  </script>
+</div>

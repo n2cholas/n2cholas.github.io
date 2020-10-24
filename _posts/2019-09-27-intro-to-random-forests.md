@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introduction to Random Forests
-comments: False
+comments: True
 ---
 
 Through this workshop you will learn how to quickly model and understand datasets using scikit-learn. Topics will include a basic introduction to using decisions trees and random forests, understanding feature importance, identifying model weaknesses, explaining your model, and more.

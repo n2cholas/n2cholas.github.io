@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introduction to Data Cleaning with Pandas
-comments: False
+comments: True
 ---
 
 Through this workshop, you will learn how to use Pandas to explore and “wrangle” datasets. Topics will include an introduction to Jupyter Notebooks/Colab, data cleaning with pandas, feature engineering with pandas, basic visualization and more. This workshop will focus on actual coding.
