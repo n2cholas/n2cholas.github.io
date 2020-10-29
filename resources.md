@@ -18,6 +18,7 @@ Collection of useful/cool links/resources/stuff. If there's anything you think I
 
 ## Tools
 - [VSCode Live Share](https://code.visualstudio.com/blogs/2017/11/15/live-share), a real game-changer for pair programming.
+- [VSCode Jupyter](https://code.visualstudio.com/docs/python/jupyter-support-py), lets you interactively program in Python, even files outside of notebooks.
 - [Fire](https://github.com/google/python-fire), the most succinct and least intrustive python CLI library I've used (I like argparse, [Typer](https://typer.tiangolo.com/), and [fastcore](https://github.com/fastai/fastcore)'s script module as well).
 - [FastCore](https://github.com/fastai/fastcore), useful python utilities, like typed dispatch, improved list interface, and more.
 - [Tensor Sensor](https://explained.ai/tensor-sensor/index.html), visualize tensor operations for easy debugging.
