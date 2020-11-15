@@ -3,40 +3,84 @@ layout: default
 title: Home
 ---
 
+<p>
+Welcome to my site & blog! I'm a student interested in <b>machine learning</b> and
+<b>programming languages</b>. Currently, I'm making machine learning inference
+faster at <b>NVIDIA</b> <a href=https://developer.nvidia.com/tensorrt>TensorRT</a>,
+conducting research in differential privacy with <b>Prof. Gautam Kamath</b>, and
+studying Computer Science & Statistics at the <b>University of Waterloo</b>.
+</p>
+
+<p>
+Previously, I did deep learning research on collaborative self-driving at
+<b>Uber ATG</b>, helped improve the neural network optimization algorithm library
+<a href=https://github.com/tensorflow/kfac>K-FAC</a> at <b>Google Brain</b>, and developed
+data-driven models to identify fraud at <b>John Hancock Financial</b>. I've also
+worked as a Research Assistant for <b>Prof. Lin Tan</b> in deep learning-driven
+software analysis and <b>Prof. Pascal Poupart</b> on neural network parameter
+learning.
+</p>
+
+<p>
+If you love tidbits of technical info, follow me on
+<a href=https://twitter.com/nicvadivelu>twitter</a>. Feel free to reach out through
+email: <code>nicholas.vadivelu [at] gmail [dot] com</code> or book some time with me
+through <a href=https://calendly.com/nicv>calendly</a>--I love to chat!
+</p>
+<br>
+
+<h2>Papers</h2>
+<ul>
+    <li>Learning to Communicate and Correct Pose Errors.
+        <b>Nicholas Vadivelu</b>, Mengye Ren, James Tu, Jingkang Wang, Raquel Urtasun. 
+        <i>Conference on Robotics Learning (CoRL),</i> Virtual, 2020
+        [<a href=https://arxiv.org/abs/2011.05289 target="_blank">arxiv</a>]
+        [<a onclick="toggle('abstract-2011.05289')" target="_blank">abstract</a>]
+        <div id="abstract-2011.05289" style="display:none">
+            <br><i><small>
+            Learned communication makes multi-agent systems more effective by aggregating distributed information. However, it also exposes individual agents to the threat of erroneous messages they might receive. In this paper, we study the setting proposed in V2VNet, where nearby self-driving vehicles jointly perform object detection and motion forecasting in a cooperative manner. Despite a huge performance boost when the agents solve the task together, the gain is quickly diminished in the presence of pose noise since the communication relies on spatial transformations. Hence, we propose a novel neural reasoning framework that learns to communicate, to estimate potential errors, and finally, to reach a consensus about those errors. Experiments confirm that our proposed framework significantly improves the robustness of multi-agent self-driving perception and motion forecasting systems under realistic and severe localization noise.
+            </small></i><br><br>
+        </div>
+    </li>
+    <li>Enabling Fast Differentially Private SGD via Just-in-Time Compilation and Vectorization.
+        Pranav Subramani, <b>Nicholas Vadivelu</b>, Gautam Kamath. 
+        <i>NeuRIPS Privacy-Preserving Machine Learning Workshop,</i> Virtual, 2020
+        [<a href=https://arxiv.org/abs/2010.09063 target="_blank">arxiv</a>]
+        [<a href=https://github.com/TheSalon/fast-dpsgd target="_blank">code</a>]
+        [<a onclick="toggle('abstract-2010.09063')">abstract</a>]
+        <div id="abstract-2010.09063" style="display:none">
+            <br><i><small>
+                A common pain point in differentially private machine learning is the significant runtime overhead incurred when executing Differentially Private Stochastic Gradient Descent (DPSGD), which may be as large as two orders of magnitude. We thoroughly demonstrate that by exploiting powerful language primitives, including vectorization, just-in-time compilation, and static graph optimization, one can dramatically reduce these overheads, in many cases nearly matching the best non-private running times. These gains are realized in two frameworks: JAX and TensorFlow. JAX provides rich support for these primitives as core features of the language through the XLA compiler. We also rebuild core parts of TensorFlow Privacy, integrating features from TensorFlow 2 as well as XLA compilation, granting significant memory and runtime improvements over the current release version. These approaches allow us to achieve up to 50x speedups in comparison to the best alternatives.
+            </small></i><br><br>
+        </div>
+    </li>
+</ul>
+<br>
+
+<h2>Blog Posts</h2>
 <div class="posts">
+  <table style="border-collapse: collapse; border: none; background: none;">
   {% for post in paginator.posts %}
-  <div class="post">
-    <h1 class="post-title">
-      <a href="{{ post.url | absolute_url }}">
-        {{ post.title }}
-      </a>
-    </h1>
-
-    <span class="post-date">{{ post.date | date_to_string }}</span>
-
-    {{ post.content | markdownify | strip_html | truncatewords: 50 }}
-
-    <a href="{{ site.baseurl }}{{ post.url }}">
-    Read more...
-    </a>
-
-  </div>
+    <tr style="border: none; background: none;margin: 0; padding: 0;">
+        <td style="border: none; background: none;margin: 0; padding: 0;">
+            <h4 class="post-title">{{ post.date | date: "%b %Y"}}</h4>
+        </td>
+        <td style="border: none; background: none;margin: 0; padding: 0;">
+            <h4 class="post-title"><a href="{{ post.url | absolute_url }}">{{ post.title }}</a></h4>
+        </td> 
   {% endfor %}
+  </tr>
+  </table>
 </div>
 
-<div class="pagination">
-  {% if paginator.next_page %}
-    <a class="pagination-item older" href="{{ paginator.next_page_path | absolute_url }}">Older</a>
-  {% else %}
-    <span class="pagination-item older">Older</span>
-  {% endif %}
-  {% if paginator.previous_page %}
-    {% if paginator.page == 2 %}
-      <a class="pagination-item newer" href="{{ '/' | absolute_url }}">Newer</a>
-    {% else %}
-      <a class="pagination-item newer" href="{{ paginator.previous_page_path | absolute_url }}">Newer</a>
-    {% endif %}
-  {% else %}
-    <span class="pagination-item newer">Newer</span>
-  {% endif %}
-</div>
+<script> 
+function toggle(id) {
+    console.log(id)
+    var x = document.getElementById(id);
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+</script>
