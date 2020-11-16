@@ -61,12 +61,21 @@ through <a href=https://calendly.com/nicv>calendly</a>--I love to chat!
 <div class="posts">
   <table style="border-collapse: collapse; border: none; background: none;">
   {% for post in paginator.posts %}
-    <tr style="border: none; background: none;margin: 0; padding: 0;">
-        <td style="border: none; background: none;margin: 0; padding: 0;">
+    <tr style="border: none; background: none; margin: 0; padding: 0;">
+        <td style="border: none; background: none; margin: 0; padding-top: 0; padding-bottom: 0; white-space: nowrap; vertical-align: top;">
             <h4 class="post-title">{{ post.date | date: "%b %Y"}}</h4>
         </td>
-        <td style="border: none; background: none;margin: 0; padding: 0;">
-            <h4 class="post-title"><a href="{{ post.url | absolute_url }}">{{ post.title }}</a></h4>
+        <td style="border: none; background: none; margin: 0; padding-top: 0; padding-bottom: 0; vertical-align: top;">
+            <h4 class="post-title">
+                <a href="{{ post.url | absolute_url }}">{{ post.title }}</a>
+                [<a onclick="toggle('{{ post.url }}-preview')" style="color: #268bd2;">preview</a>]
+            </h4>
+                <div id="{{ post.url }}-preview" style="display:none">
+                    <small><i>
+                    {{ post.content | markdownify | strip_html | truncatewords: 50 }}
+                    <a href="{{ site.baseurl }}{{ post.url }}">continue reading</a>
+                    </i></small><br><br>
+                </div>
         </td> 
   {% endfor %}
   </tr>
