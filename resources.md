@@ -79,6 +79,8 @@ Collection of useful/cool links/resources/stuff. If there's anything you think I
 - [Auto formatters for Python](https://medium.com/3yourmind/auto-formatters-for-python-8925065f9505), comparison of the major formatters (autopep8, yapf, black) for python. I'm very particular about my code format, so without an auto-formatter, I waste a lot of time getting it right. My personal preference is yapf(google), but black is considered the "best".
 - [Silvia Sellán](http://dgp.toronto.edu/~sgsellan/) posted/wrote some resources about choosing and applying to grad school.
 - [John Schulman's opinionated guide to ML research](http://joschu.net/blog/opinionated-guide-ml-research.html)
+- [Translating SQL Queries to Pandas Commands](https://medium.com/jbennetcodes/how-to-rewrite-your-sql-queries-in-pandas-and-more-149d341fc53e)
+- [Group-by from scratch](https://jakevdp.github.io/blog/2017/03/22/group-by-from-scratch/).
 
 ## Little Gems
 - [Disposable Email Addresses](http://guerrillamail.com/inbox)
@@ -93,6 +95,7 @@ Collection of useful/cool links/resources/stuff. If there's anything you think I
 - [Stein's Paradox](https://twitter.com/i/web/status/1298274201682325509), fun statistics paradox.
 - [Latency numbers every programmer should know](http://cheat.sh/latency)
 - [Get notified at the end of your python script](https://towardsdatascience.com/how-to-get-a-notification-when-your-training-is-complete-with-python-2d39679d5f0f).
+- [Sync Outlook and Google Calendar](https://phw198.github.io/OutlookGoogleCalendarSync/), annoyingly hard to do natively, super useful for seeing work and personal events in one place. Sometimes it'll mess up the sync if you fiddle with events too much, I just disconnect then reconnect my account.
 
 ## Resources I've helped put together:
 - [First Steps for Learning Data Science](https://nicholasvadivelu.com/2020/08/30/learn-data-sci/)
