@@ -31,18 +31,24 @@ through <a href=https://calendly.com/nicv>calendly</a>--I love to chat!
 
 <h2>Papers</h2>
 <ul>
-    <li>Learning to Communicate and Correct Pose Errors.
+    <li style="padding: 5px 0px;">Learning to Communicate and Correct Pose Errors.
         <b>Nicholas Vadivelu</b>, Mengye Ren, James Tu, Jingkang Wang, Raquel Urtasun. 
         <i>Conference on Robot Learning (CoRL),</i> Virtual, 2020
         [<a href=https://arxiv.org/abs/2011.05289 target="_blank">arxiv</a>]
         [<a onclick="toggle('abstract-2011.05289')" target="_blank">abstract</a>]
+        [<a onclick="toggle('corl-video')" target="_blank">video</a>]
         <div id="abstract-2011.05289" style="display:none">
             <br><i><small>
             Learned communication makes multi-agent systems more effective by aggregating distributed information. However, it also exposes individual agents to the threat of erroneous messages they might receive. In this paper, we study the setting proposed in V2VNet, where nearby self-driving vehicles jointly perform object detection and motion forecasting in a cooperative manner. Despite a huge performance boost when the agents solve the task together, the gain is quickly diminished in the presence of pose noise since the communication relies on spatial transformations. Hence, we propose a novel neural reasoning framework that learns to communicate, to estimate potential errors, and finally, to reach a consensus about those errors. Experiments confirm that our proposed framework significantly improves the robustness of multi-agent self-driving perception and motion forecasting systems under realistic and severe localization noise.
             </small></i><br><br>
         </div>
+        <div id="corl-video" style="display:none">
+            <center>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/DJVQzqRbIoc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </center>
+        </div>
     </li>
-    <li>Enabling Fast Differentially Private SGD via Just-in-Time Compilation and Vectorization.
+    <li style="padding: 5px 0px;">Enabling Fast Differentially Private SGD via Just-in-Time Compilation and Vectorization.
         Pranav Subramani, <b>Nicholas Vadivelu</b>, Gautam Kamath. 
         <i>NeuRIPS Privacy-Preserving Machine Learning Workshop,</i> Virtual, 2020
         [<a href=https://arxiv.org/abs/2010.09063 target="_blank">arxiv</a>]
@@ -84,7 +90,6 @@ through <a href=https://calendly.com/nicv>calendly</a>--I love to chat!
 
 <script> 
 function toggle(id) {
-    console.log(id)
     var x = document.getElementById(id);
     if (x.style.display === "none") {
         x.style.display = "block";
