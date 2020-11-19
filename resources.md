@@ -55,6 +55,7 @@ Collection of useful/cool links/resources/stuff. If there's anything you think I
 - [Non-conforming C++](https://youtu.be/IAdLwUXRUvg), cool obscure C++ features.
 - [Lex Fridman's Interview with Jeremy Howard](https://youtu.be/J6XcP4JOHmk).
 - [Andrei Alexandrescu “Speed Is Found In The Minds of People"](https://youtu.be/FJJTYQYB1JQ), optimizing sorting medium sized arrays in C++ (really interesting and good takeaways).
+- [Creating intuitive APIs](https://youtu.be/iVHDQagLsrg), talk by Lars Knoll on designing good APIs based on his experience with Qt.
 
 ## Blog/Other Posts
 - [Advice for CS PhDs](https://phdadvice.carrd.co/), lots of cool links for people aiming to go into or are currently in a CS PhD.
