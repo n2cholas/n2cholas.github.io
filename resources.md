@@ -82,6 +82,7 @@ Collection of useful/cool links/resources/stuff. If there's anything you think I
 - [John Schulman's opinionated guide to ML research](http://joschu.net/blog/opinionated-guide-ml-research.html)
 - [Translating SQL Queries to Pandas Commands](https://medium.com/jbennetcodes/how-to-rewrite-your-sql-queries-in-pandas-and-more-149d341fc53e)
 - [Group-by from scratch](https://jakevdp.github.io/blog/2017/03/22/group-by-from-scratch/).
+- [Tech Interview Handbook](https://yangshun.github.io/tech-interview-handbook/), a great guide on getting a job in tech.
 
 ## Little Gems
 - [Disposable Email Addresses](http://guerrillamail.com/inbox)
