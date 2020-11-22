@@ -34,7 +34,7 @@ through <a href=https://calendly.com/nicv>calendly</a>--I love to chat!
 <ul>
     <li style="padding: 5px 0px;">Learning to Communicate and Correct Pose Errors.
         <b>Nicholas Vadivelu</b>, Mengye Ren, James Tu, Jingkang Wang, Raquel Urtasun. 
-        <i>Conference on Robot Learning (CoRL),</i> Virtual, 2020
+        <i>Conference on Robot Learning (CoRL),</i> Virtual, 2020.
         [<a href=https://arxiv.org/abs/2011.05289 target="_blank">arxiv</a>]
         [<a onclick="toggle('abstract-2011.05289')" target="_blank">abstract</a>]
         [<a onclick="toggle('corl-video')" target="_blank">video</a>]
@@ -51,13 +51,99 @@ through <a href=https://calendly.com/nicv>calendly</a>--I love to chat!
     </li>
     <li style="padding: 5px 0px;">Enabling Fast Differentially Private SGD via Just-in-Time Compilation and Vectorization.
         Pranav Subramani, <b>Nicholas Vadivelu</b>, Gautam Kamath. 
-        <i>NeuRIPS Privacy-Preserving Machine Learning Workshop,</i> Virtual, 2020
+        <i>NeuRIPS Privacy-Preserving Machine Learning Workshop,</i> Virtual, 2020.
         [<a href=https://arxiv.org/abs/2010.09063 target="_blank">arxiv</a>]
         [<a href=https://github.com/TheSalon/fast-dpsgd target="_blank">code</a>]
         [<a onclick="toggle('abstract-2010.09063')">abstract</a>]
         <div id="abstract-2010.09063" style="display:none">
             <br><i><small>
                 A common pain point in differentially private machine learning is the significant runtime overhead incurred when executing Differentially Private Stochastic Gradient Descent (DPSGD), which may be as large as two orders of magnitude. We thoroughly demonstrate that by exploiting powerful language primitives, including vectorization, just-in-time compilation, and static graph optimization, one can dramatically reduce these overheads, in many cases nearly matching the best non-private running times. These gains are realized in two frameworks: JAX and TensorFlow. JAX provides rich support for these primitives as core features of the language through the XLA compiler. We also rebuild core parts of TensorFlow Privacy, integrating features from TensorFlow 2 as well as XLA compilation, granting significant memory and runtime improvements over the current release version. These approaches allow us to achieve up to 50x speedups in comparison to the best alternatives.
+            </small></i><br><br>
+        </div>
+    </li>
+</ul>
+<br>
+
+<h2>Talks</h2>
+<ul>
+    <li style="padding: 5px 0px;">Overview of Data Science and Data Science Careers.
+        <i>University of Waterloo Data Science Club,</i> Waterloo, Aug 2020.
+        [<a onclick="toggle('ds-video')" target="_blank">video</a>]
+        [<a onclick="toggle('ds-description')" target="_blank">description</a>]
+        [<a href=https://docs.google.com/presentation/d/17lBqf7phIRMys2nLS49Nd--GyOk307IvWP2AQDvHyYE/edit?usp=sharing target="_blank">slides</a>]
+        <div id="ds-video" style="display:none">
+            <center>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/USMgJOB8wBY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </center>
+        </div>
+        <div id="ds-description" style="display:none">
+            <br><i><small>
+            In this talk, you'll learn about UWaterloo's data science club, data science in general, data science careers, and how to tailor your education for a data science career. This presentation was made for first-year students entering UWaterloo in Fall 2020.
+            </small></i><br><br>
+        </div>
+    </li>
+    <li style="padding: 5px 0px;">Introduction to JAX for Machine Learning and More.
+        <i>University of Waterloo Data Science Club,</i> Waterloo, July 2020.
+        [<a onclick="toggle('jax-video')" target="_blank">video</a>]
+        [<a onclick="toggle('jax-description')" target="_blank">description</a>]
+        [<a href=https://github.com/n2cholas/dsc-workshops/blob/master/JAX_Demo.ipynb target="_blank">notebook</a>]
+        <div id="jax-video" style="display:none">
+            <center>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/QkmKfzxbCLQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </center>
+        </div>
+        <div id="jax-description" style="display:none">
+            <br><i><small>
+                JAX is a numeric computing library with a numpy-like interface. It specializes in function transformations such as auto-differentiation, just in time compilation (via XLA), and more. Through this workshop, you'll learn about what JAX is, how to use it, how it is different from other libraries like PyTorch and TensorFlow, why you should consider adding it to your toolkit.
+            </small></i><br><br>
+        </div>
+    </li>
+    <li style="padding: 5px 0px;">Introduction to Neural Networks in TensorFlow 2.0.
+        <i>Laurier Developer Student Club,</i> Waterloo, Nov 2019.
+        [<a onclick="toggle('tf2-video')" target="_blank">video</a>]
+        [<a onclick="toggle('tf2-description')" target="_blank">description</a>]
+        [<a href=https://github.com/n2cholas/dsc-workshops/blob/master/Introduction_to_Neural_Networks_with_TensorFlow_2.ipynb target="_blank">notebook</a>]
+        <div id="tf2-video" style="display:none">
+            <center>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/a_RkE897-Kw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </center>
+        </div>
+        <div id="tf2-description" style="display:none">
+            <br><i><small>
+            This workshop introduces neural networks in TensorFlow 2.0. Topics covered include linear regression, multiclass logistic regression, gradient descent, and neural network. TF 2.0 features such as tf.keras, tf.data, and more are covered. This was co-hosted by the UW Data Science Club and Laurier Developer Student Club.
+            </small></i><br><br>
+        </div>
+    </li>
+    <li style="padding: 5px 0px;">Introduction to Machine Learning with Scikit-learn.
+        <i>Hack the North,</i> Waterloo, Sep 2019.
+        [<a onclick="toggle('sklearn-video')" target="_blank">video</a>]
+        [<a onclick="toggle('sklearn-description')" target="_blank">description</a>]
+        [<a href=https://github.com/n2cholas/dsc-workshops/blob/master/Random_Forests_Workshop_V2.ipynb target="_blank">notebook</a>]
+        [<a href=https://docs.google.com/presentation/d/14e5iw-AswCbli4YUHZI1d9OYu4csM2nyxv84Ytu68QY/edit?usp=sharing target="_blank">slides</a>]
+        <div id="sklearn-video" style="display:none">
+            <center>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/ANdn3CF4bss" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </center>
+        </div>
+        <div id="sklearn-description" style="display:none">
+            <br><i><small>
+            Through this workshop you will learn how to quickly model and understand datasets using scikit-learn. Topics will include a basic introduction to using decisions trees and random forests, understanding feature importance, identifying model weaknesses, explaining your model and more. This workshop will focus on evaluating your model with less emphasis on syntax and mechanics.
+            </small></i><br><br>
+        </div>
+    </li>
+    <li style="padding: 5px 0px;">Introduction to Pandas for Python.
+        <i>Hack the North,</i> Waterloo, Sep 2019.
+        [<a onclick="toggle('pandas-video')" target="_blank">video</a>]
+        [<a onclick="toggle('pandas-description')" target="_blank">description</a>]
+        [<a href=https://github.com/n2cholas/dsc-workshops/blob/master/Introduction_to_Data_Cleaning_with_Pandas.ipynb target="_blank">notebook</a>]
+        <div id="pandas-video" style="display:none">
+            <center>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/mesgiVk8G6s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </center>
+        </div>
+        <div id="pandas-description" style="display:none">
+            <br><i><small>
+            Through this workshop, you will learn how to use Pandas to explore and “wrangle” datasets. Topics will include an introduction to Jupyer Notebooks/Colab, data cleaning with pandas, feature engineering with pandas, basic visualization and more. This workshop will focus on actual coding.
             </small></i><br><br>
         </div>
     </li>
