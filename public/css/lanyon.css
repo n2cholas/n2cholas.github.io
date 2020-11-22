@@ -13,27 +13,6 @@
  * https://github.com/poole/lanyon.
  */
 
-/* Added Styles */
-img.center {
-    display: block;
-    margin: 0 auto;
-}
-
-img[src*='#center'] {
-    display: block;
-    margin: 0 auto;
-}
-
-div.output_block {
-  overflow-y: auto; 
-  max-height: 300px; 
-  padding-left: 10%;
-}
-
-code.codeblock {
-  white-space: pre; 
-}
-
 
 /*
  * Contents
