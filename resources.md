@@ -87,18 +87,21 @@ Collection of useful/cool links/resources/stuff. If there's anything you think I
 ## Little Gems
 - [Disposable Email Addresses](http://guerrillamail.com/inbox)
 - [Libby](https://libbyapp.com/welcome), sign out ebooks and audiobooks with your library card.
-- [`difflib.get_close_matches`](https://twitter.com/pybites/status/1301956083930607617), return "good enough" matches for strings.
-- [`jax.mask` lets you use ragged arrays with vmap!](https://twitter.com/remilouf/status/1306180863101743109?s=20)
 - [Sum numbers in order of increasing magnitude for better accuracy](https://twitter.com/i/web/status/1302301255700627456)
 - [Git Autostash](https://www.praqma.com/stories/git-autostash/) for pulling even with local changes.
 - [Include YAMLs in other YAMLs](https://gist.github.com/joshbode/569627ced3076931b02f) (for Python).
 - [Anatomy of Matplotlib](https://github.com/matplotlib/AnatomyOfMatplotlib)
 - [Copy-pasting in TMUX](https://www.rushiagr.com/blog/2016/06/16/everything-you-need-to-know-about-tmux-copy-pasting-ubuntu/)
-- [Stein's Paradox](https://twitter.com/i/web/status/1298274201682325509), fun statistics paradox.
 - [Latency numbers every programmer should know](http://cheat.sh/latency)
 - [Get notified at the end of your python script](https://towardsdatascience.com/how-to-get-a-notification-when-your-training-is-complete-with-python-2d39679d5f0f).
 - [Sync Outlook and Google Calendar](https://phw198.github.io/OutlookGoogleCalendarSync/), annoyingly hard to do natively, super useful for seeing work and personal events in one place. Sometimes it'll mess up the sync if you fiddle with events too much, I just disconnect then reconnect my account.
+
+Helpful Tweets
 - [Useful Git Aliases](https://twitter.com/SBinLondon/status/1333744070640930816?s=20)
+- [ML Testing Tips](https://twitter.com/sh_reya/status/1329830437112320000)
+- [`difflib.get_close_matches`](https://twitter.com/pybites/status/1301956083930607617), return "good enough" matches for strings.
+- [`jax.mask` lets you use ragged arrays with vmap!](https://twitter.com/remilouf/status/1306180863101743109?s=20)
+- [Stein's Paradox](https://twitter.com/i/web/status/1298274201682325509), fun statistics paradox.
 
 ## Resources I've helped put together:
 - [First Steps for Learning Data Science](https://nicholasvadivelu.com/2020/08/30/learn-data-sci/)
