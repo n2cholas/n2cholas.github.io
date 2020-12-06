@@ -98,6 +98,7 @@ Collection of useful/cool links/resources/stuff. If there's anything you think I
 - [Latency numbers every programmer should know](http://cheat.sh/latency)
 - [Get notified at the end of your python script](https://towardsdatascience.com/how-to-get-a-notification-when-your-training-is-complete-with-python-2d39679d5f0f).
 - [Sync Outlook and Google Calendar](https://phw198.github.io/OutlookGoogleCalendarSync/), annoyingly hard to do natively, super useful for seeing work and personal events in one place. Sometimes it'll mess up the sync if you fiddle with events too much, I just disconnect then reconnect my account.
+- [Use Git Aliases](https://twitter.com/SBinLondon/status/1333744070640930816?s=20)
 
 ## Resources I've helped put together:
 - [First Steps for Learning Data Science](https://nicholasvadivelu.com/2020/08/30/learn-data-sci/)
