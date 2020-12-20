@@ -83,6 +83,8 @@ Collection of useful/cool links/resources/stuff. If there's anything you think I
 - [Translating SQL Queries to Pandas Commands](https://medium.com/jbennetcodes/how-to-rewrite-your-sql-queries-in-pandas-and-more-149d341fc53e)
 - [Group-by from scratch](https://jakevdp.github.io/blog/2017/03/22/group-by-from-scratch/).
 - [Tech Interview Handbook](https://yangshun.github.io/tech-interview-handbook/), a great guide on getting a job in tech.
+- [Kalpesh Krishna's grad school resources](https://martiansideofthemoon.github.io/2018/05/29/grad-resources.html).
+- [GPT-2 Visualized](http://jalammar.github.io/illustrated-gpt2/).
 
 ## Little Gems
 - [Disposable Email Addresses](http://guerrillamail.com/inbox)
@@ -96,7 +98,7 @@ Collection of useful/cool links/resources/stuff. If there's anything you think I
 - [Get notified at the end of your python script](https://towardsdatascience.com/how-to-get-a-notification-when-your-training-is-complete-with-python-2d39679d5f0f).
 - [Sync Outlook and Google Calendar](https://phw198.github.io/OutlookGoogleCalendarSync/), annoyingly hard to do natively, super useful for seeing work and personal events in one place. Sometimes it'll mess up the sync if you fiddle with events too much, I just disconnect then reconnect my account.
 
-Helpful Tweets
+## Helpful Tweets
 - [Useful Git Aliases](https://twitter.com/SBinLondon/status/1333744070640930816?s=20)
 - [ML Testing Tips](https://twitter.com/sh_reya/status/1329830437112320000)
 - [`difflib.get_close_matches`](https://twitter.com/pybites/status/1301956083930607617), return "good enough" matches for strings.
