@@ -8,9 +8,6 @@ Through this workshop, you will learn how to use Pandas to explore and “wrangl
 
 This article provides a summary of the main workshop, which you can watch [here](https://youtu.be/mesgiVk8G6s). [Here](https://colab.research.google.com/github/n2cholas/dsc-workshops/blob/master/Introduction_to_Data_Cleaning_with_Pandas.ipynb) is a colab link to run all the code.
 
-Indented plain-text blocks in this article contain outputs from the previous code block.
-
-
 ```python
 import pandas as pd
 import numpy as np
@@ -38,8 +35,8 @@ Timing your pandas code is a very helpful learning tool, so you can figure out t
 ```
 
 <div class="output_block">
-<pre>
-<code class="codeblock">100000 loops, best of 3: 14 µs per loop</code>
+<pre class="output">
+100000 loops, best of 3: 14 µs per loop
 </pre>
 </div>
 
@@ -52,9 +49,9 @@ for i in range(10):
 ```
 
 <div class="output_block">
-<pre>
-<code class="codeblock">The slowest run took 5.44 times longer than the fastest. This could mean that an intermediate result is being cached.
-1000000 loops, best of 3: 300 ns per loop</code>
+<pre class="output">
+The slowest run took 5.44 times longer than the fastest. This could mean that an intermediate result is being cached.
+1000000 loops, best of 3: 300 ns per loop
 </pre>
 </div>
 
@@ -74,15 +71,15 @@ s
 ```
 
 <div class="output_block">
-<pre>
-<code class="codeblock">0    a
+<pre class="output">
+0    a
 1    b
 2    c
 3    d
 4    e
 5    f
 6    g
-dtype: object</code>
+dtype: object
 </pre>
 </div>
 
@@ -98,8 +95,8 @@ s[1] # returns the 2nd element (0 indexed)
 ```
 
 <div class="output_block">
-<pre>
-<code class="codeblock">'b'</code>
+<pre class="output">
+'b'
 </pre>
 </div>
 
@@ -111,10 +108,10 @@ s[1:3] # returns a series from indices 1 to 3 (exclusive)
 ```
 
 <div class="output_block">
-<pre>
-<code class="codeblock">1    b
+<pre class="output">
+1    b
 2    c
-dtype: object</code>
+dtype: object
 </pre>
 </div>
 
@@ -125,11 +122,11 @@ s[1::2] # returns series from indices 1 to the end, counting by 2s (i.e. 1, 3, 5
 ```
 
 <div class="output_block">
-<pre>
-<code class="codeblock">1    b
+<pre class="output">
+1    b
 3    d
 5    f
-dtype: object</code>
+dtype: object
 </pre>
 </div>
 
@@ -150,9 +147,9 @@ s2.sample()
 ```
 
 <div class="output_block">
-<pre>
-<code class="codeblock">2    1.04
-dtype: float64</code>
+<pre class="output">
+2    1.04
+dtype: float64
 </pre>
 </div>
 
@@ -170,8 +167,8 @@ df.sample()
 ```
 
 <div class="output_block">
-<pre>
-<code class="codeblock">Number of pokemon:  918</code>
+<pre class="output">
+Number of pokemon:  918
 </pre>
 </div>
 
@@ -504,8 +501,8 @@ mdf.dtypes
 
 
 <div class="output_block">
-<pre>
-<code class="codeblock">name          object
+<pre class="output">
+name          object
 type          object
 category      object
 contest       object
@@ -513,7 +510,7 @@ pp             int64
 power         object
 accuracy      object
 generation     int64
-dtype: object</code>
+dtype: object
 </pre>
 </div>
 
@@ -528,8 +525,8 @@ mdf['accuracy'].value_counts()
 
 
 <div class="output_block">
-<pre>
-<code class="codeblock">100     320
+<pre class="output">
+100     320
 None    280
 90       46
 95       29
@@ -539,7 +536,7 @@ None    280
 70        4
 55        3
 50        3
-Name: accuracy, dtype: int64</code>
+Name: accuracy, dtype: int64
 </pre>
 </div>
 
@@ -563,8 +560,8 @@ mdf.power == 'None'
 
 
 <div class="output_block">
-<pre>
-<code class="codeblock">0      False
+<pre class="output">
+0      False
 1      False
 2      False
 3      False
@@ -625,7 +622,7 @@ mdf.power == 'None'
 725    False
 726    False
 727    False
-Name: power, Length: 728, dtype: bool</code>
+Name: power, Length: 728, dtype: bool
 </pre>
 </div>
 
@@ -735,13 +732,13 @@ mdf.loc[mdf.power == 'None', 'power'].head()
 
 
 <div class="output_block">
-<pre>
-<code class="codeblock">11    None
+<pre class="output">
+11    None
 13    None
 17    None
 27    None
 31    None
-Name: power, dtype: object</code>
+Name: power, dtype: object
 </pre>
 </div>
 
@@ -759,8 +756,8 @@ mdf.dtypes
 
 
 <div class="output_block">
-<pre>
-<code class="codeblock">name          object
+<pre class="output">
+name          object
 type          object
 category      object
 contest       object
@@ -768,7 +765,7 @@ pp             int64
 power          int64
 accuracy       int64
 generation     int64
-dtype: object</code>
+dtype: object
 </pre>
 </div>
 
@@ -786,8 +783,8 @@ df.dtypes
 
 
 <div class="output_block">
-<pre>
-<code class="codeblock">name         object
+<pre class="output">
+name         object
 types        object
 abilities    object
 tier         object
@@ -799,7 +796,7 @@ spd           int64
 spe           int64
 next_evos    object
 moves        object
-dtype: object</code>
+dtype: object
 </pre>
 </div>
 
@@ -820,8 +817,8 @@ for ind, row in temp_df.iterrows():
 ```
 
 <div class="output_block">
-<pre>
-<code class="codeblock">10 loops, best of 3: 108 ms per loop</code>
+<pre class="output">
+10 loops, best of 3: 108 ms per loop
 </pre>
 </div>
 
@@ -837,8 +834,8 @@ df['types'] = temp_df.apply(lambda x: eval(x.types), axis=1)
 ```
 
 <div class="output_block">
-<pre>
-<code class="codeblock">10 loops, best of 3: 22.4 ms per loop</code>
+<pre class="output">
+10 loops, best of 3: 22.4 ms per loop
 </pre>
 </div>
 
@@ -852,8 +849,8 @@ df['abilities'] = temp_df.abilities.map(eval)
 ```
 
 <div class="output_block">
-<pre>
-<code class="codeblock">100 loops, best of 3: 6.12 ms per loop</code>
+<pre class="output">
+100 loops, best of 3: 6.12 ms per loop
 </pre>
 </div>
 
@@ -869,8 +866,8 @@ df['moves'] = temp_df.moves.progress_map(eval)
 ```
 
 <div class="output_block">
-<pre>
-<code class="codeblock">100%|██████████| 918/918 [00:00<00:00, 8454.77it/s]</code>
+<pre class="output">
+100%|██████████| 918/918 [00:00<00:00, 8454.77it/s]
 </pre>
 </div>
 
@@ -888,8 +885,8 @@ df.loc['Pikachu']
 
 
 <div class="output_block">
-<pre>
-<code class="codeblock">types                                               [Electric]
+<pre class="output">
+types                                               [Electric]
 abilities                              [Lightning Rod, Static]
 tier                                                       NaN
 hp                                                          35
@@ -900,7 +897,7 @@ spd                                                         50
 spe                                                         90
 next_evos                               [Raichu, Raichu-Alola]
 moves        [Tail Whip, Thunder Shock, Growl, Play Nice, T...
-Name: Pikachu, dtype: object</code>
+Name: Pikachu, dtype: object
 </pre>
 </div>
 
@@ -1031,8 +1028,8 @@ df['moves'] = df.moves.progress_map(set)
 ```
 
 <div class="output_block">
-<pre>
-<code class="codeblock">100%|██████████| 918/918 [00:00<00:00, 68711.23it/s]</code>
+<pre class="output">
+100%|██████████| 918/918 [00:00<00:00, 68711.23it/s]
 </pre>
 </div>
 
@@ -1049,8 +1046,8 @@ weird_moves
 
 
 <div class="output_block">
-<pre>
-<code class="codeblock">{"Baby'Doll Eyes",
+<pre class="output">
+{"Baby'Doll Eyes",
  "Double'Edge",
  "Forest's Curse",
  "Freeze'Dry",
@@ -1068,7 +1065,7 @@ weird_moves
  "U'turn",
  "Wake'Up Slap",
  "Will'O'Wisp",
- "X'Scissor"}</code>
+ "X'Scissor"}
 </pre>
 </div>
 
@@ -1092,8 +1089,8 @@ df['moves'] = df.moves.progress_map(clean_moves)
 ```
 
 <div class="output_block">
-<pre>
-<code class="codeblock">100%|██████████| 918/918 [00:00<00:00, 43018.50it/s]</code>
+<pre class="output">
+100%|██████████| 918/918 [00:00<00:00, 43018.50it/s]
 </pre>
 </div>
 
@@ -1108,9 +1105,9 @@ removal_check
 
 
 <div class="output_block">
-<pre>
-<code class="codeblock">{"Forest's Curse", "King's Shield", "Land's Wrath",
- "Nature's Madness"}</code>
+<pre class="output">
+{"Forest's Curse", "King's Shield", "Land's Wrath",
+ "Nature's Madness"}
 </pre>
 </div>
 
@@ -1173,8 +1170,8 @@ df['tier'].dtype
 
 
 <div class="output_block">
-<pre>
-<code class="codeblock">CategoricalDtype(categories=['Uber', 'OU', 'UU', 'NU', 'RU', 'PU'], ordered=True)</code>
+<pre class="output">
+CategoricalDtype(categories=['Uber', 'OU', 'UU', 'NU', 'RU', 'PU'], ordered=True)
 </pre>
 </div>
 
@@ -1189,8 +1186,8 @@ df['tier'].cat.codes.head(10)
 
 
 <div class="output_block">
-<pre>
-<code class="codeblock">name
+<pre class="output">
+name
 Abomasnow          5
 Abomasnow-Mega     4
 Absol              5
@@ -1201,7 +1198,7 @@ Aegislash-Blade    0
 Aerodactyl         4
 Aerodactyl-Mega    2
 Aggron             5
-dtype: int8</code>
+dtype: int8
 </pre>
 </div>
 
@@ -1214,8 +1211,8 @@ list(zip(df['tier'].head(10), df['tier'].cat.codes.head(10)))
 
 
 <div class="output_block">
-<pre>
-<code class="codeblock">[('PU', 5),
+<pre class="output">
+[('PU', 5),
  ('RU', 4),
  ('PU', 5),
  ('UU', 2),
@@ -1224,7 +1221,7 @@ list(zip(df['tier'].head(10), df['tier'].cat.codes.head(10)))
  ('Uber', 0),
  ('RU', 4),
  ('UU', 2),
- ('PU', 5)]</code>
+ ('PU', 5)]
 </pre>
 </div>
 

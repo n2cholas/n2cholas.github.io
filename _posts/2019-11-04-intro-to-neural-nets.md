@@ -8,8 +8,6 @@ In this workshop, we will learn about Neural Networks and how to build them in T
 
 This article provides a summary of the main workshop, which you can watch [here](https://youtu.be/a_RkE897-Kw). [Here](https://colab.research.google.com/github/n2cholas/dsc-workshops/blob/master/Introduction_to_Neural_Networks_with_TensorFlow_2.ipynb) is a colab link to run all the code. The colab and article have a section on metrics, which was not covered in the live session. 
 
-Indented plain-text blocks in this article contain outputs from the previous code block.
-
 ## Workshop Overview
 
 1.   What is TensorFlow?
@@ -48,9 +46,9 @@ x
 ```
 
 <div class="output_block">
-<pre>
-<code class="codeblock"><tf.Tensor: id=0, shape=(4,), dtype=int32, 
-            numpy=array([1, 2, 3, 4], dtype=int32)></code>
+<pre class="output">
+<tf.Tensor: id=0, shape=(4,), dtype=int32, 
+            numpy=array([1, 2, 3, 4], dtype=int32)>
 </pre>
 </div>
 
@@ -67,9 +65,9 @@ Unlike Python lists, you can do **vectorized operations**:
 
 
 <div class="output_block">
-<pre>
-<code class="codeblock"><tf.Tensor: id=4, shape=(4,), dtype=int32, 
-            numpy=array([3, 5, 7, 9], dtype=int32)></code>
+<pre class="output">
+<tf.Tensor: id=4, shape=(4,), dtype=int32, 
+            numpy=array([3, 5, 7, 9], dtype=int32)>
 </pre>
 </div>
 
@@ -94,9 +92,9 @@ matrix[1, :] # second row of the matrix
 
 
 <div class="output_block">
-<pre>
-<code class="codeblock"><tf.Tensor: id=10, shape=(4,), dtype=int32, 
-            numpy=array([4, 4, 4, 4], dtype=int32)></code>
+<pre class="output">
+<tf.Tensor: id=10, shape=(4,), dtype=int32, 
+            numpy=array([4, 4, 4, 4], dtype=int32)>
 </pre>
 </div>
 
@@ -108,7 +106,6 @@ for i in range(3):
   matrix[i, :] += vec
 ```
 
-
     ----------------------------------------------------------------------
 
     TypeError                            Traceback (most recent call last)
@@ -116,7 +113,7 @@ for i in range(3):
     <ipython-input-7-10dabb925653> in <module>()
           1 for i in range(3):
     ----> 2   matrix[i, :] += vec
-    
+
 
     TypeError: 'tensorflow.python.framework.ops.EagerTensor' object does not support item assignment
 
@@ -133,11 +130,11 @@ matrix
 
 
 <div class="output_block">
-<pre>
-<code class="codeblock"><tf.Variable 'Variable:0' shape=(3, 4) dtype=int32, numpy=
+<pre class="output">
+<tf.Variable 'Variable:0' shape=(3, 4) dtype=int32, numpy=
 array([[1, 1, 1, 1],
        [4, 4, 4, 4],
-       [5, 5, 5, 5]], dtype=int32)></code>
+       [5, 5, 5, 5]], dtype=int32)>
 </pre>
 </div>
 
@@ -152,11 +149,11 @@ matrix + vec
 
 
 <div class="output_block">
-<pre>
-<code class="codeblock"><tf.Tensor: id=26, shape=(3, 4), dtype=int32, numpy=
+<pre class="output">
+<tf.Tensor: id=26, shape=(3, 4), dtype=int32, numpy=
 array([[2, 3, 4, 5],
        [5, 6, 7, 8],
-       [6, 7, 8, 9]], dtype=int32)></code>
+       [6, 7, 8, 9]], dtype=int32)>
 </pre>
 </div>
 
@@ -171,11 +168,11 @@ matrix.assign(matrix + vec)
 
 
 <div class="output_block">
-<pre>
-<code class="codeblock"><tf.Variable 'UnreadVariable' shape=(3, 4) dtype=int32, numpy=
+<pre class="output">
+<tf.Variable 'UnreadVariable' shape=(3, 4) dtype=int32, numpy=
 array([[2, 3, 4, 5],
        [5, 6, 7, 8],
-       [6, 7, 8, 9]], dtype=int32)></code>
+       [6, 7, 8, 9]], dtype=int32)>
 </pre>
 </div>
 
@@ -195,8 +192,8 @@ x + v
 
 
 <div class="output_block">
-<pre>
-<code class="codeblock"><tf.Tensor: id=39, shape=(), dtype=int32, numpy=1></code>
+<pre class="output">
+<tf.Tensor: id=39, shape=(), dtype=int32, numpy=1>
 </pre>
 </div>
 
@@ -217,15 +214,15 @@ x
 
 
 <div class="output_block">
-<pre>
-<code class="codeblock"><tf.Tensor: id=43, shape=(40,), dtype=float32, numpy=
-array([1.       , 1.1      , 1.2      , 1.3000001, 1.4000001, 1.5000001,
-       1.6000001, 1.7000002, 1.8000002, 1.9000002, 2.0000002, 2.1000001,
-       2.2      , 2.3      , 2.3999999, 2.4999998, 2.5999997, 2.6999996,
-       2.7999995, 2.8999994, 2.9999993, 3.0999992, 3.199999 , 3.299999 ,
-       3.399999 , 3.4999988, 3.5999987, 3.6999986, 3.7999985, 3.8999984,
-       3.9999983, 4.0999985, 4.1999984, 4.2999983, 4.399998 , 4.499998 ,
-       4.599998 , 4.699998 , 4.799998 , 4.8999977], dtype=float32)></code>
+<pre class="output">
+<tf.Tensor: id=43, shape=(40,), dtype=float32, numpy=
+array([1.     , 1.1    , 1.2    , 1.30000, 1.40000, 1.50000,
+       1.60000, 1.70000, 1.80000, 1.90000, 2.00000, 2.10000,
+       2.2    , 2.3    , 2.39999, 2.49999, 2.59999, 2.69999,
+       2.79999, 2.89999, 2.99999, 3.09999, 3.19999, 3.29999,
+       3.39999, 3.49999, 3.59999, 3.69999, 3.79999, 3.89999,
+       3.99999, 4.09999, 4.19999, 4.29999, 4.39999, 4.49999,
+       4.59999, 4.69999, 4.79999, 4.89999], dtype=float32)>
 </pre>
 </div>
 
@@ -242,8 +239,8 @@ y
 
 
 <div class="output_block">
-<pre>
-<code class="codeblock"><tf.Tensor: id=55, shape=(40,), dtype=float32, numpy=
+<pre class="output">
+<tf.Tensor: id=55, shape=(40,), dtype=float32, numpy=
 array([ 1.5081716,  3.4402354,  3.565304 ,  2.9521132,  4.642995 ,
         5.1984725,  4.033718 ,  4.244085 ,  5.6146545,  6.6339474,
         6.4838257,  6.9260926,  6.266905 ,  6.4089746,  6.5717545,
@@ -252,7 +249,7 @@ array([ 1.5081716,  3.4402354,  3.565304 ,  2.9521132,  4.642995 ,
        11.2754   , 11.156017 , 11.16319  , 12.735874 , 13.418887 ,
        12.87348  , 13.070494 , 13.1910925, 13.565499 , 14.655623 ,
        14.032754 , 15.643642 , 16.414732 , 16.290714 , 16.515282 ],
-      dtype=float32)></code>
+      dtype=float32)>
 </pre>
 </div>
 
@@ -291,15 +288,15 @@ y_pred
 
 
 <div class="output_block">
-<pre>
-<code class="codeblock"><tf.Tensor: id=97, shape=(40,), dtype=float32, numpy=
+<pre class="output">
+<tf.Tensor: id=97, shape=(40,), dtype=float32, numpy=
 array([1.       , 1.1      , 1.2      , 1.3000001, 1.4000001, 1.5000001,
        1.6000001, 1.7000002, 1.8000002, 1.9000002, 2.0000002, 2.1000001,
        2.2      , 2.3      , 2.3999999, 2.4999998, 2.5999997, 2.6999996,
        2.7999995, 2.8999994, 2.9999993, 3.0999992, 3.199999 , 3.299999 ,
        3.399999 , 3.4999988, 3.5999987, 3.6999986, 3.7999985, 3.8999984,
        3.9999983, 4.0999985, 4.1999984, 4.2999983, 4.399998 , 4.499998 ,
-       4.599998 , 4.699998 , 4.799998 , 4.8999977], dtype=float32)></code>
+       4.599998 , 4.699998 , 4.799998 , 4.8999977], dtype=float32)>
 </pre>
 </div>
 
@@ -337,8 +334,8 @@ mse(y, y_pred) # want to minimize this value!
 ```
 
 <div class="output_block">
-<pre>
-<code class="codeblock"><tf.Tensor: id=182, shape=(), dtype=float32, numpy=49.60046></code>
+<pre class="output">
+<tf.Tensor: id=182, shape=(), dtype=float32, numpy=49.60046>
 </pre>
 </div>
 
@@ -360,8 +357,8 @@ print(f'Loss: {mse(y, y_pred).numpy()}')
 ```
 
 <div class="output_block">
-<pre>
-<code class="codeblock">Loss: 0.4125025272369385</code>
+<pre class="output">
+Loss: 0.4125025272369385
 </pre>
 </div>
 
@@ -377,8 +374,8 @@ print(f'm: {m.numpy()}   b: {b.numpy()}')
 ```
 
 <div class="output_block">
-<pre>
-<code class="codeblock">m: 3.5368335247039795   b: -1.110854148864746</code>
+<pre class="output">
+m: 3.5368335247039795   b: -1.110854148864746
 </pre>
 </div>
 
@@ -421,9 +418,9 @@ m, b
 
 
 <div class="output_block">
-<pre>
-<code class="codeblock">(<tf.Variable 'Variable:0' shape=() dtype=float32, numpy=1.0>,
- <tf.Variable 'Variable:0' shape=() dtype=float32, numpy=0.0>)</code>
+<pre class="output">
+(<tf.Variable 'Variable:0' shape=() dtype=float32, numpy=1.0>,
+ <tf.Variable 'Variable:0' shape=() dtype=float32, numpy=0.0>)
 </pre>
 </div>
 
@@ -442,9 +439,9 @@ tape.gradient(loss, [m, b])
 
 
 <div class="output_block">
-<pre>
-<code class="codeblock">[<tf.Tensor: id=354, shape=(), dtype=float32, numpy=-44.360188>,
- <tf.Tensor: id=347, shape=(), dtype=float32, numpy=-12.745608>]</code>
+<pre class="output">
+[<tf.Tensor: id=354, shape=(), dtype=float32, numpy=-44.360188>,
+ <tf.Tensor: id=347, shape=(), dtype=float32, numpy=-12.745608>]
 </pre>
 </div>
 
@@ -472,8 +469,8 @@ for step in range(100):
 ```
 
 <div class="output_block">
-<pre>
-<code class="codeblock">Loss: 49.600460052490234
+<pre class="output">
+Loss: 49.600460052490234
 Loss: 0.717918336391449
 Loss: 0.6513835191726685
 Loss: 0.5993430018424988
@@ -482,7 +479,7 @@ Loss: 0.5268036127090454
 Loss: 0.5019029378890991
 Loss: 0.482427179813385
 Loss: 0.46719399094581604
-Loss: 0.4552793502807617</code>
+Loss: 0.4552793502807617
 </pre>
 </div>
 
@@ -498,8 +495,8 @@ print(f'm: {m.numpy()}   b: {b.numpy()}')
 ```
 
 <div class="output_block">
-<pre>
-<code class="codeblock">m: 3.387526035308838   b: -0.6091350317001343</code>
+<pre class="output">
+m: 3.387526035308838   b: -0.6091350317001343
 </pre>
 </div>
 
@@ -546,8 +543,8 @@ for step in range(100):
 ```
 
 <div class="output_block">
-<pre>
-<code class="codeblock">Loss: 49.600460052490234
+<pre class="output">
+Loss: 49.600460052490234
 Loss: 0.717918336391449
 Loss: 0.6513835191726685
 Loss: 0.5993430018424988
@@ -556,7 +553,7 @@ Loss: 0.5268036127090454
 Loss: 0.5019029378890991
 Loss: 0.482427179813385
 Loss: 0.46719399094581604
-Loss: 0.4552793502807617</code>
+Loss: 0.4552793502807617
 </pre>
 </div>
 
@@ -593,8 +590,8 @@ for step in range(100):
 ```
 
 <div class="output_block">
-<pre>
-<code class="codeblock">Loss: 49.600460052490234
+<pre class="output">
+Loss: 49.600460052490234
 Loss: 0.717918336391449
 Loss: 0.6513835191726685
 Loss: 0.5993430018424988
@@ -603,7 +600,7 @@ Loss: 0.5268036127090454
 Loss: 0.5019029378890991
 Loss: 0.482427179813385
 Loss: 0.46719399094581604
-Loss: 0.4552793502807617</code>
+Loss: 0.4552793502807617
 </pre>
 </div>
 
@@ -631,8 +628,8 @@ for step in range(100):
 ```
 
 <div class="output_block">
-<pre>
-<code class="codeblock">Loss: 49.600460052490234
+<pre class="output">
+Loss: 49.600460052490234
 Loss: 0.717918336391449
 Loss: 0.6513835191726685
 Loss: 0.5993430018424988
@@ -641,7 +638,7 @@ Loss: 0.5268036127090454
 Loss: 0.5019029378890991
 Loss: 0.482427179813385
 Loss: 0.46719399094581604
-Loss: 0.4552793502807617</code>
+Loss: 0.4552793502807617
 </pre>
 </div>
 
@@ -704,8 +701,8 @@ y[3]
 ```
 
 <div class="output_block">
-<pre>
-<code class="codeblock"><tf.Tensor: id=16386, shape=(), dtype=uint8, numpy=1></code>
+<pre class="output">
+<tf.Tensor: id=16386, shape=(), dtype=uint8, numpy=1>
 </pre>
 </div>
 
@@ -731,8 +728,8 @@ x.shape, y.shape # 28*28 images, 60 000 images
 ```
 
 <div class="output_block">
-<pre>
-<code class="codeblock">(TensorShape([60000, 28, 28]), TensorShape([60000]))</code>
+<pre class="output">
+(TensorShape([60000, 28, 28]), TensorShape([60000]))
 </pre>
 </div>
 
@@ -745,8 +742,8 @@ for i in range(10):
 ```
 
 <div class="output_block">
-<pre>
-<code class="codeblock">Number of 0: 5923
+<pre class="output">
+Number of 0: 5923
 Number of 1: 6742
 Number of 2: 5958
 Number of 3: 6131
@@ -755,7 +752,7 @@ Number of 5: 5421
 Number of 6: 5918
 Number of 7: 6265
 Number of 8: 5851
-Number of 9: 5949</code>
+Number of 9: 5949
 </pre>
 </div>
 
@@ -767,8 +764,8 @@ x.dtype, y.dtype
 
 
 <div class="output_block">
-<pre>
-<code class="codeblock">(tf.uint8, tf.uint8)</code>
+<pre class="output">
+(tf.uint8, tf.uint8)
 </pre>
 </div>
 
@@ -798,15 +795,15 @@ y
 
 
 <div class="output_block">
-<pre>
-<code class="codeblock"><tf.Tensor: id=16451, shape=(500, 10), dtype=float32, numpy=
+<pre class="output">
+<tf.Tensor: id=16451, shape=(500, 10), dtype=float32, numpy=
 array([[0., 0., 0., ..., 0., 0., 0.],
        [1., 0., 0., ..., 0., 0., 0.],
        [0., 0., 0., ..., 0., 0., 0.],
        ...,
        [0., 0., 0., ..., 1., 0., 0.],
        [0., 0., 0., ..., 0., 0., 0.],
-       [0., 0., 0., ..., 0., 1., 0.]], dtype=float32)></code>
+       [0., 0., 0., ..., 0., 1., 0.]], dtype=float32)>
 </pre>
 </div>
 
@@ -822,15 +819,15 @@ x
 
 
 <div class="output_block">
-<pre>
-<code class="codeblock"><tf.Tensor: id=16453, shape=(500, 784), dtype=float32, numpy=
+<pre class="output">
+<tf.Tensor: id=16453, shape=(500, 784), dtype=float32, numpy=
 array([[0., 0., 0., ..., 0., 0., 0.],
        [0., 0., 0., ..., 0., 0., 0.],
        [0., 0., 0., ..., 0., 0., 0.],
        ...,
        [0., 0., 0., ..., 0., 0., 0.],
        [0., 0., 0., ..., 0., 0., 0.],
-       [0., 0., 0., ..., 0., 0., 0.]], dtype=float32)></code>
+       [0., 0., 0., ..., 0., 0., 0.]], dtype=float32)>
 </pre>
 </div>
 
@@ -860,15 +857,15 @@ x
 
 
 <div class="output_block">
-<pre>
-<code class="codeblock"><tf.Tensor: id=16453, shape=(500, 784), dtype=float32, numpy=
+<pre class="output">
+<tf.Tensor: id=16453, shape=(500, 784), dtype=float32, numpy=
 array([[0., 0., 0., ..., 0., 0., 0.],
        [0., 0., 0., ..., 0., 0., 0.],
        [0., 0., 0., ..., 0., 0., 0.],
        ...,
        [0., 0., 0., ..., 0., 0., 0.],
        [0., 0., 0., ..., 0., 0., 0.],
-       [0., 0., 0., ..., 0., 0., 0.]], dtype=float32)></code>
+       [0., 0., 0., ..., 0., 0., 0.]], dtype=float32)>
 </pre>
 </div>
 
@@ -888,21 +885,16 @@ linear_model(x)
 
 
 <div class="output_block">
-<pre>
-<code class="codeblock"><tf.Tensor: id=16475, shape=(500, 10), dtype=float32, numpy=
-array([[107.94119 , 107.94119 , 107.94119 , ..., 107.94119 , 107.94119 ,
-        107.94119 ],
-       [121.94121 , 121.94121 , 121.94121 , ..., 121.94121 , 121.94121 ,
-        121.94121 ],
-       [ 76.247055,  76.247055,  76.247055, ...,  76.247055,  76.247055,
-         76.247055],
+<pre class="output">
+<tf.Tensor: id=16475, shape=(500, 10), dtype=float32, numpy=
+array([[107.94119 , 107.94119 , 107.94119 , ..., 107.94119 , 107.94119 , 107.94119],
+       [121.94121 , 121.94121 , 121.94121 , ..., 121.94121 , 121.94121 , 121.94121],
+       [ 76.247055,  76.247055,  76.247055, ...,  76.247055,  76.247055, 76.247055],
        ...,
-       [ 81.074524,  81.074524,  81.074524, ...,  81.074524,  81.074524,
-         81.074524],
-       [ 71.69804 ,  71.69804 ,  71.69804 , ...,  71.69804 ,  71.69804 ,
-         71.69804 ],
-       [108.50588 , 108.50588 , 108.50588 , ..., 108.50588 , 108.50588 ,
-        108.50588 ]], dtype=float32)></code>
+       [ 81.074524,  81.074524,  81.074524, ...,  81.074524,  81.074524, 81.074524],
+       [ 71.69804 ,  71.69804 ,  71.69804 , ...,  71.69804 ,  71.69804 , 71.69804 ],
+       [108.50588 , 108.50588 , 108.50588 , ..., 108.50588 , 108.50588 , 108.50588]], 
+       dtype=float32)>
 </pre>
 </div>
 
@@ -926,15 +918,15 @@ softmax(linear_model(x))
 
 
 <div class="output_block">
-<pre>
-<code class="codeblock"><tf.Tensor: id=16484, shape=(500, 10), dtype=float32, numpy=
+<pre class="output">
+<tf.Tensor: id=16484, shape=(500, 10), dtype=float32, numpy=
 array([[nan, nan, nan, ..., nan, nan, nan],
        [nan, nan, nan, ..., nan, nan, nan],
        [ 0.,  0.,  0., ...,  0.,  0.,  0.],
        ...,
        [ 0.,  0.,  0., ...,  0.,  0.,  0.],
        [ 0.,  0.,  0., ...,  0.,  0.,  0.],
-       [nan, nan, nan, ..., nan, nan, nan]], dtype=float32)></code>
+       [nan, nan, nan, ..., nan, nan, nan]], dtype=float32)>
 </pre>
 </div>
 
@@ -948,15 +940,15 @@ y_pred
 
 
 <div class="output_block">
-<pre>
-<code class="codeblock"><tf.Tensor: id=16489, shape=(500, 10), dtype=float32, numpy=
+<pre class="output">
+<tf.Tensor: id=16489, shape=(500, 10), dtype=float32, numpy=
 array([[0.1, 0.1, 0.1, ..., 0.1, 0.1, 0.1],
        [0.1, 0.1, 0.1, ..., 0.1, 0.1, 0.1],
        [0.1, 0.1, 0.1, ..., 0.1, 0.1, 0.1],
        ...,
        [0.1, 0.1, 0.1, ..., 0.1, 0.1, 0.1],
        [0.1, 0.1, 0.1, ..., 0.1, 0.1, 0.1],
-       [0.1, 0.1, 0.1, ..., 0.1, 0.1, 0.1]], dtype=float32)></code>
+       [0.1, 0.1, 0.1, ..., 0.1, 0.1, 0.1]], dtype=float32)>
 </pre>
 </div>
 
@@ -971,8 +963,8 @@ tf.reduce_sum(y_pred, axis=1)
 
 
 <div class="output_block">
-<pre>
-<code class="codeblock"><tf.Tensor: id=16491, shape=(500,), dtype=float32, numpy=
+<pre class="output">
+<tf.Tensor: id=16491, shape=(500,), dtype=float32, numpy=
 array([1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
        1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
        1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
@@ -1002,7 +994,7 @@ array([1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
        1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
        1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
        1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
-       1., 1., 1., 1., 1., 1., 1.], dtype=float32)></code>
+       1., 1., 1., 1., 1., 1., 1.], dtype=float32)>
 </pre>
 </div>
 
@@ -1021,8 +1013,8 @@ accuracy(y, y_pred)
 
 
 <div class="output_block">
-<pre>
-<code class="codeblock"><tf.Tensor: id=16499, shape=(), dtype=float32, numpy=0.1></code>
+<pre class="output">
+<tf.Tensor: id=16499, shape=(), dtype=float32, numpy=0.1>
 </pre>
 </div>
 
@@ -1051,8 +1043,8 @@ categorical_crossentropy(y, y_pred) # this outputs the cross entropy per example
 
 
 <div class="output_block">
-<pre>
-<code class="codeblock"><tf.Tensor: id=16504, shape=(500,), dtype=float32, numpy=
+<pre class="output">
+<tf.Tensor: id=16504, shape=(500,), dtype=float32, numpy=
 array([2.3025851, 2.3025851, 2.3025851, 2.3025851, 2.3025851, 2.3025851,
        2.3025851, 2.3025851, 2.3025851, 2.3025851, 2.3025851, 2.3025851,
        2.3025851, 2.3025851, 2.3025851, 2.3025851, 2.3025851, 2.3025851,
@@ -1136,7 +1128,7 @@ array([2.3025851, 2.3025851, 2.3025851, 2.3025851, 2.3025851, 2.3025851,
        2.3025851, 2.3025851, 2.3025851, 2.3025851, 2.3025851, 2.3025851,
        2.3025851, 2.3025851, 2.3025851, 2.3025851, 2.3025851, 2.3025851,
        2.3025851, 2.3025851, 2.3025851, 2.3025851, 2.3025851, 2.3025851,
-       2.3025851, 2.3025851], dtype=float32)></code>
+       2.3025851, 2.3025851], dtype=float32)>
 </pre>
 </div>
 
@@ -1165,8 +1157,8 @@ for i in range(1000):
 ```
 
 <div class="output_block">
-<pre>
-<code class="codeblock">Loss: 2.3025851249694824  Accuracy: 0.10000000149011612
+<pre class="output">
+Loss: 2.3025851249694824  Accuracy: 0.10000000149011612
 Loss: 0.4364985227584839  Accuracy: 0.9039999842643738
 Loss: 0.29362964630126953  Accuracy: 0.9440000057220459
 Loss: 0.22477126121520996  Accuracy: 0.9660000205039978
@@ -1175,7 +1167,7 @@ Loss: 0.1515568494796753  Accuracy: 0.9860000014305115
 Loss: 0.12939059734344482  Accuracy: 0.9919999837875366
 Loss: 0.11246717721223831  Accuracy: 0.9980000257492065
 Loss: 0.099213607609272  Accuracy: 1.0
-Loss: 0.08861198276281357  Accuracy: 1.0</code>
+Loss: 0.08861198276281357  Accuracy: 1.0
 </pre>
 </div>
 
@@ -1189,10 +1181,10 @@ y_pred[0].numpy()
 
 
 <div class="output_block">
-<pre>
-<code class="codeblock">array([7.2486359e-03, 8.7252660e-03, 1.6632091e-02, 6.6710129e-02,
+<pre class="output">
+array([7.2486359e-03, 8.7252660e-03, 1.6632091e-02, 6.6710129e-02,
        2.4541716e-05, 8.8565266e-01, 1.4892247e-03, 4.6367473e-03,
-       7.0132478e-03, 1.8675643e-03], dtype=float32)</code>
+       7.0132478e-03, 1.8675643e-03], dtype=float32)
 </pre>
 </div>
 
@@ -1205,8 +1197,8 @@ y[0].numpy()
 
 
 <div class="output_block">
-<pre>
-<code class="codeblock">array([0., 0., 0., 0., 0., 1., 0., 0., 0., 0.], dtype=float32)</code>
+<pre class="output">
+array([0., 0., 0., 0., 0., 1., 0., 0., 0., 0.], dtype=float32)
 </pre>
 </div>
 
@@ -1230,8 +1222,8 @@ print(f'Loss: {loss.numpy()}  Accuracy: {accuracy(y_pred, y_test)}')
 ```
 
 <div class="output_block">
-<pre>
-<code class="codeblock">Loss: 0.5398113131523132  Accuracy: 0.8337000012397766</code>
+<pre class="output">
+Loss: 0.5398113131523132  Accuracy: 0.8337000012397766
 </pre>
 </div>
 
@@ -1260,8 +1252,8 @@ for i in range(1000):
 ```
 
 <div class="output_block">
-<pre>
-<code class="codeblock">Loss: 2.3025853633880615  Accuracy: 0.09871666878461838
+<pre class="output">
+Loss: 2.3025853633880615  Accuracy: 0.09871666878461838
 Loss: 0.6087093949317932  Accuracy: 0.8613333106040955
 Loss: 0.48937270045280457  Accuracy: 0.877216637134552
 Loss: 0.44037213921546936  Accuracy: 0.885450005531311
@@ -1270,7 +1262,7 @@ Loss: 0.39325031638145447  Accuracy: 0.8945833444595337
 Loss: 0.37943124771118164  Accuracy: 0.8974999785423279
 Loss: 0.3687483072280884  Accuracy: 0.8997833132743835
 Loss: 0.3601595163345337  Accuracy: 0.9016333222389221
-Loss: 0.3530517518520355  Accuracy: 0.9029833078384399</code>
+Loss: 0.3530517518520355  Accuracy: 0.9029833078384399
 </pre>
 </div>
 
@@ -1285,8 +1277,8 @@ print(f'Loss: {loss.numpy()}  Accuracy: {accuracy(y_pred, y_test)}')
 ```
 
 <div class="output_block">
-<pre>
-<code class="codeblock">Loss: 0.33095377683639526  Accuracy: 0.909600019454956</code>
+<pre class="output">
+Loss: 0.33095377683639526  Accuracy: 0.909600019454956
 </pre>
 </div>
 
@@ -1381,8 +1373,8 @@ for i in range(1000):
 ```
 
 <div class="output_block">
-<pre>
-<code class="codeblock">Loss: 13.893878936767578  Accuracy: 0.10978333652019501
+<pre class="output">
+Loss: 13.893878936767578  Accuracy: 0.10978333652019501
 Loss: 7.0014495849609375  Accuracy: 0.5102999806404114
 Loss: 5.423182964324951  Accuracy: 0.6128833293914795
 Loss: 4.862724781036377  Accuracy: 0.6526166796684265
@@ -1391,7 +1383,7 @@ Loss: 4.456557273864746  Accuracy: 0.683650016784668
 Loss: 4.345137596130371  Accuracy: 0.6911166906356812
 Loss: 4.257636547088623  Accuracy: 0.6973999738693237
 Loss: 4.185241222381592  Accuracy: 0.701533317565918
-Loss: 4.123439788818359  Accuracy: 0.7055833339691162</code>
+Loss: 4.123439788818359  Accuracy: 0.7055833339691162
 </pre>
 </div>
 
@@ -1449,8 +1441,8 @@ for i in range(1000):
 ```
 
 <div class="output_block">
-<pre>
-<code class="codeblock">Loss: 0.2992660701274872  Accuracy: 0.9152833223342896
+<pre class="output">
+Loss: 0.2992660701274872  Accuracy: 0.9152833223342896
 Loss: 0.2906898856163025  Accuracy: 0.9175333380699158
 Loss: 0.2830638587474823  Accuracy: 0.919866681098938
 Loss: 0.27615323662757874  Accuracy: 0.9215666651725769
@@ -1459,7 +1451,7 @@ Loss: 0.2639724612236023  Accuracy: 0.9250166416168213
 Loss: 0.2585376501083374  Accuracy: 0.926716685295105
 Loss: 0.25347232818603516  Accuracy: 0.9281833171844482
 Loss: 0.24871543049812317  Accuracy: 0.9294000267982483
-Loss: 0.24421274662017822  Accuracy: 0.9306333065032959</code>
+Loss: 0.24421274662017822  Accuracy: 0.9306333065032959
 </pre>
 </div>
 
@@ -1539,13 +1531,13 @@ for epoch in range(2):
 ```
 
 <div class="output_block">
-<pre>
-<code class="codeblock">Epoch 0 Step 0 Loss: 2.420623302459717 Accuracy: 0.0703125
+<pre class="output">
+Epoch 0 Step 0 Loss: 2.420623302459717 Accuracy: 0.0703125
 Epoch 0 Step 100 Loss: 0.6510080099105835 Accuracy: 0.8515625
 Epoch 0 Step 200 Loss: 0.5177682638168335 Accuracy: 0.86328125
 Epoch 1 Step 0 Loss: 0.415408730506897 Accuracy: 0.87890625
 Epoch 1 Step 100 Loss: 0.4126032888889313 Accuracy: 0.8984375
-Epoch 1 Step 200 Loss: 0.365292489528656 Accuracy: 0.89453125</code>
+Epoch 1 Step 200 Loss: 0.365292489528656 Accuracy: 0.89453125
 </pre>
 </div>
 
@@ -1602,13 +1594,13 @@ for epoch in range(2):
 ```
 
 <div class="output_block">
-<pre>
-<code class="codeblock">Epoch 0 Step 0 Loss: 2.346635580062866 Accuracy: 0.15234375
+<pre class="output">
+Epoch 0 Step 0 Loss: 2.346635580062866 Accuracy: 0.15234375
 Epoch 0 Step 100 Loss: 1.2027271282672882 Accuracy: 0.6998828053474426
 Epoch 0 Step 200 Loss: 0.5806717258691788 Accuracy: 0.8575390577316284
 Epoch 1 Step 0 Loss: 0.43301645602498734 Accuracy: 0.8878348469734192
 Epoch 1 Step 100 Loss: 0.42787124931812287 Accuracy: 0.8848046660423279
-Epoch 1 Step 200 Loss: 0.4001629453897476 Accuracy: 0.8896093964576721</code>
+Epoch 1 Step 200 Loss: 0.4001629453897476 Accuracy: 0.8896093964576721
 </pre>
 </div>
 
@@ -1642,13 +1634,13 @@ for epoch in range(2):
 ```
 
 <div class="output_block">
-<pre>
-<code class="codeblock">Epoch 0 Step 0 Loss: 0.30616647005081177 Accuracy: 0.9140625
+<pre class="output">
+Epoch 0 Step 0 Loss: 0.30616647005081177 Accuracy: 0.9140625
 Epoch 0 Step 100 Loss: 0.3538685739040375 Accuracy: 0.9021875262260437
 Epoch 0 Step 200 Loss: 0.34719112515449524 Accuracy: 0.9018359184265137
 Epoch 1 Step 0 Loss: 0.28928661346435547 Accuracy: 0.9163636565208435
 Epoch 1 Step 100 Loss: 0.3155575692653656 Accuracy: 0.9126172065734863
-Epoch 1 Step 200 Loss: 0.32115286588668823 Accuracy: 0.908007800579071</code>
+Epoch 1 Step 200 Loss: 0.32115286588668823 Accuracy: 0.908007800579071
 </pre>
 </div>
 
@@ -1680,8 +1672,8 @@ history = model.fit(x=x_train, y=y_train, batch_size=256, epochs=10,
 ```
 
 <div class="output_block">
-<pre>
-<code class="codeblock">Train on 60000 samples, validate on 10000 samples
+<pre class="output">
+Train on 60000 samples, validate on 10000 samples
 Epoch 1/10
 60000/60000 [==============================] - 2s 28us/sample - loss: 1.6077 - accuracy: 0.5817 - val_loss: 1.0738 - val_accuracy: 0.7891
 Epoch 2/10
@@ -1701,7 +1693,7 @@ Epoch 8/10
 Epoch 9/10
 60000/60000 [==============================] - 1s 19us/sample - loss: 0.3807 - accuracy: 0.8942 - val_loss: 0.3573 - val_accuracy: 0.9001
 Epoch 10/10
-60000/60000 [==============================] - 1s 20us/sample - loss: 0.3686 - accuracy: 0.8968 - val_loss: 0.3470 - val_accuracy: 0.9029</code>
+60000/60000 [==============================] - 1s 20us/sample - loss: 0.3686 - accuracy: 0.8968 - val_loss: 0.3470 - val_accuracy: 0.9029
 </pre>
 </div>
 

@@ -10,8 +10,6 @@ If you are not familiar with pandas, check out [this](https://nicholasvadivelu.c
 
 Many of the model interpretation techniques were taken from the [fast.ai ML course](http://course18.fast.ai/ml). Check it out!!
 
-Indented plain-text blocks in this article contain outputs from the previous code block.
-
 ```python
 import numpy as np
 import pandas as pd
