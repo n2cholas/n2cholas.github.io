@@ -38,7 +38,7 @@ The recent 2.0 update revamped the library for ease of use, making the API feel 
 import tensorflow as tf
 ```
 
-TensorFlow is a library for manipulation **tensors**, which are essentialy multidimensional arrays.
+TensorFlow is a library for manipulating **tensors**, which are essentialy multidimensional arrays.
 
 ```python
 x = tf.convert_to_tensor([1, 2, 3, 4])
