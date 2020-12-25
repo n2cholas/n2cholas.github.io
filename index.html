@@ -181,7 +181,7 @@ calendly</a>--I love to chat!
         </td>
         <td style="border: none; background: none; margin: 0; padding-top: 0; padding-bottom: 0; vertical-align: top;">
             <h4 class="post-title">
-                <a href="{{ post.url | absolute_url }}">{{ post.title }}</a>
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
                 [<a onclick="toggle('{{ post.url }}-preview')" style="color: #268bd2;">preview</a>]
             </h4>
                 <div id="{{ post.url }}-preview" style="display:none">
