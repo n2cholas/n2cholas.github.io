@@ -39,3 +39,7 @@ code.codeblock {
 .dataframe {
   font-size: 80%;
 }
+
+.highlight pre {
+  border: 1px solid #BBBBBB;
+}
