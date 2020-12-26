@@ -447,7 +447,7 @@ tape.gradient(loss, [m, b])
 
 
 
-The result is the value of the partials with respect to the variables. With GradientTape, computatiosn with Variables are automatically tracked. If you want to differentiate with respect to Tensors, you have to use `tape.watch(tensor)`. We won't cover that in this workshop, but you can check that out [here](https://www.tensorflow.org/tutorials/customization/autodiff).
+The result is the value of the partials with respect to the variables. With GradientTape, computations with Variables are automatically tracked. If you want to differentiate with respect to Tensors, you have to use `tape.watch(tensor)`. We won't cover that in this workshop, but you can check that out [here](https://www.tensorflow.org/tutorials/customization/autodiff).
 
 Now we can write our training loop. We will take 100 steps with a learning rate of 0.05. Here's how that looks:
 
@@ -1395,7 +1395,7 @@ We wrote our neural network from scratch, but of course TensorFlow has APIs to m
 from tensorflow.keras.layers import Dense
 ```
 
-TensorFlow layers function similarly to the ones we created: they have `trainable_variables` you can access, and do computation through a `call` method. They have some other nice properties as well, for example, you don't need to specify an input shape -- this will be computer upon your first use of the model.
+TensorFlow layers function similarly to the ones we created: they have `trainable_variables` you can access, and do computation through a `call` method. They have some other nice properties as well, for example, you don't need to specify an input shape -- this will be computed upon your first use of the model.
 
 You can build a model almost exactly like we did by subclassing tf.keras.Model:
 
