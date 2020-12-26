@@ -906,7 +906,7 @@ We are doing what's called **multiclass logistic regression**. The current outpu
 
 $$softmax(\vec y) = \left\{\frac{\exp(y_i)}{\sum_{j=1}^k \exp(y_j)}\right\}_{i=1...k}$$
 
-This forces the sum of the elements to equal 1 (like a probability). You'll notice we don't just normalize--we exponentiate then normalize. Intuitively, the exponent makes large grow faster than small ones. If the model outputs small differences between the classes, this function will make one entry in the vector large and close to one, and the rest close to 0. This will make it easier for our model's output to match the one_hot encoded ground truth.
+This forces the sum of the elements to equal 1 (like a probability). You'll notice we don't just normalize--we exponentiate then normalize. Intuitively, an exponent makes large values increase more than it does small values. If the model outputs small differences between the classes, this function will make one entry in the vector large and close to one, and the rest close to 0. This will make it easier for our model's output to match the one-hot encoded ground truth.
 
 
 ```python
@@ -1022,7 +1022,7 @@ accuracy(y, y_pred)
 
 As we'd expect, our untrained model has a 10% accuracy, which is as accurate as one would be when randomly guessing.
 
-At this point, you might think we're going to maximize accuracy via gradient descent. Unfortunately, accuracy is not a great measure to do this with. It simple doesn't have enough fine grain information about the discrepancy between our model's predictions and the true y values. Instead, we are going to go back to thinking about our outputs as a probability distribution. We use a loss called **categorical crossentropy**. This essentially measures how far our output vector is from the target vector (our one hot encoded labels). Suppose our prediction/true values are of the form $\vec y = [y_1, y_2, ..., y_k]$ (i.e. we have k classes).
+At this point, you might think we're going to maximize accuracy via gradient descent. Unfortunately, this is not possible, since accuracy is not differentiable. Instead, we are going to go back to thinking about our outputs as a probability distribution. We use a loss called **categorical crossentropy**. This essentially measures how far our output vector is from the target vector (our one hot encoded labels). Suppose our prediction/true values are of the form $\vec y = [y_1, y_2, ..., y_k]$ (i.e. we have k classes).
 
 $L(\vec y_{true}, \vec y_{pred}) = - \sum^k_{i=1} y_{i, true}\log(y_{i, prediction})$
 
@@ -1034,7 +1034,7 @@ def categorical_crossentropy(y_true, y_pred):
   return -tf.reduce_sum(y_true*tf.math.log(y_pred), axis=1)
 ```
 
-TensorFlow gives us this function too: `tf.keras.losses.categorical_crossentropy`. We can use ours and tensorflow's interchangeably.
+TensorFlow gives us this function too: `tf.keras.losses.categorical_crossentropy`. We can use ours and TensorFlow's interchangeably.
 
 
 ```python
@@ -1134,7 +1134,7 @@ array([2.3025851, 2.3025851, 2.3025851, 2.3025851, 2.3025851, 2.3025851,
 
 
 
-Now you have all the tools to write the training loop for logistic regression. Try it before look at the solution below!
+Now you have all the tools to write the training loop for logistic regression. Try it before looking at the solution below!
 
 
 ```python
@@ -1305,7 +1305,7 @@ Well this doesn't help, since we can define $W = W_1W_2....W_l$ (and similarly c
 
 $\vec y = (a(a(\vec xW_1 + b_1)W_2 + b_2)....)W_l + \vec b_l$
 
-This is called a **fully connected neural network**! $a$ is called the **activation function**. There are many other types of neural networks, such as Convolutional Neural Networks (which work well for images) and Recurrent Neural Networks (which work well for sequences), but they all boil down to this fundamental structure.
+This is called a **fully connected neural network**! $a$ is called the **activation function**. There are many other types of neural networks, such as Convolutional Neural Networks (which work well for images) and Recurrent Neural Networks (which work well for sequences), but they all boil down to this fundamental structure. The graph diagram you typically see for Neural Networks comes from the interpretation of each intermediate output as a neuron, and the weight matrices representing weighted edges from previous layers to later layers (we won't worry about this for this post).
 
 Common activation functions include the sigmoid function, tanh, and relu (rectified linear). This one is a common choice, so we will stick to it.
 
@@ -1317,7 +1317,7 @@ def relu(x):
 
 ![alt text](https://miro.medium.com/max/1283/1*DfMRHwxY1gyyDmrIAd-gjQ.png#center)
 
-Though this function is technically non-linear, even though it doesn't look like it. It's only linear when x > 0. We will not talk about this too much, and just use it.
+This function _is_ non-linear, even though it is composed of linear parts. 
 
 We need to make a slight modification to our Linear class, then we'll make our neural network class:
 
@@ -1458,13 +1458,13 @@ Loss: 0.24421274662017822  Accuracy: 0.9306333065032959
 
 I encourage you to read the documentation to learn more about the layers, as there are some tricks that will make these perform slightly better than ours (e.g. initialization).
 
-### Using tf.data
+### Using `tf.data`
 
 Our model's training well now, but each step is pretty slow. Our update step takes time proportional to the size of our dataset, since our loss/gradients are calculated with respect to the entire training set. Also, when working with larger datasets, this may not even be possible.
 
 Instead, we can compute our loss and gradients with respect to a subset of our data called a **minibatch**. This is great, since our update no longer takes time proportional to our dataset size. The drawback is our update is now **stochastic**, since we are updating our parameters on a random subset of our data. Typically, we split our dataset into minibatches of size 32 - 256.
 
-Let's do this with TensorFlow dataset API, tf.data. It will be much more performant than raw tensors for minibatch gradient descent.
+Let's do this with TensorFlow dataset API, `tf.data`. It will be much more performant than raw tensors for minibatch gradient descent.
 
 
 ```python
@@ -1498,8 +1498,10 @@ We apply this preprocessing to our dataset using `map`. Then, we shuffle our dat
 
 
 ```python
-train_dataset = train_dataset.map(preprocess_tfdata).shuffle(buffer_size=5000)
-train_dataset = train_dataset.batch(256).prefetch(buffer_size=tf.data.experimental.AUTOTUNE)
+train_dataset = train_dataset.map(preprocess_tfdata).shuffle(
+  buffer_size=5000)
+train_dataset = train_dataset.batch(256).prefetch(
+  buffer_size=tf.data.experimental.AUTOTUNE)
 
 test_dataset = test_dataset.map(preprocess_tfdata).batch(256)
 
@@ -1515,7 +1517,8 @@ Now we can train. This time, our loop looks a bit different. We call every pass 
 
 ```python
 optimizer = tf.keras.optimizers.SGD(learning_rate=0.05)
-loss_fn = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=False)
+loss_fn = tf.keras.losses.SparseCategoricalCrossentropy(
+  from_logits=False)  # since we don't softmax our output
 
 for epoch in range(2):
   for step, (x, y) in enumerate(train_dataset):
@@ -1525,9 +1528,11 @@ for epoch in range(2):
       loss = tf.reduce_mean(loss_per_example)
 
     gradient = tape.gradient(loss, model.trainable_variables)
-    optimizer.apply_gradients(zip(gradient, model.trainable_variables))
+    optimizer.apply_gradients(zip(gradient, 
+                                  model.trainable_variables))
     if step % 100 == 0:
-      print(f'Epoch {epoch} Step {step} Loss: {loss.numpy()} Accuracy: {sparse_accuracy(y, y_pred)}')
+      print(f'Epoch {epoch} Step {step} Loss: {loss.numpy()} '
+            f'Accuracy: {sparse_accuracy(y, y_pred)}')
 ```
 
 <div class="output_block">
@@ -1707,7 +1712,7 @@ These APIs are highly performant and robust, so you don't have to worry about me
 We covered the fundamentals of neural networks and of TensorFlow 2. Note we emphasized the fundamentals and implementing them from scratch. You should look at other sources online for more idiomatic code, such as the [keras examples page](https://keras.io/examples/).
 
 Here are some things I'd recommend checking out next for Neural Networks:
-*   Backpropogation (how are the gradients computed? spoiler: it's chain rule!)
+*   Backpropagation (how are the gradients computed? spoiler: it's chain rule!)
 *   Convolutional and Recurrent Neural Networks 
 *   Regularization (my model's still overfitting! how do I fix that?)
 
@@ -1715,4 +1720,4 @@ Here are some things I'd recommend checking out for TensorFlow 2:
 *   The various layers, metrics, losses, optimizers, and activation functions offered.
 *   Functional API for building models
 *   Using `@tf.function` to speed up your code
-*   Distributed Training with tf.distribute
+*   Distributed Training with `tf.distribute`
