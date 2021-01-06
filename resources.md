@@ -37,6 +37,7 @@ Collection of useful/cool links/resources/stuff. If there's anything you think I
 - [Herbie](https://herbie.uwplse.org/), automatically find and fix floating point issues (stability).
 - [Einops](https://arogozhnikov.github.io/einops/pytorch-examples.html), write more expressive tensor manipulations.
 - [LaTeX equations in PowerPoint](https://www.fast.ai/2019/06/17/latex-ppt/), a nice add-on and guide by Jeremy Howard.
+- [PlotNeuralNet](https://github.com/HarisIqbal88/PlotNeuralNet), latex generator for beautiful neural network visualizations.
 
 ## Courses
 - [Advanced ML/DL Courses](https://www.reddit.com/r/MachineLearning/comments/fdw0ax/d_advanced_courses_update/) (advanced meaning PhD level)
