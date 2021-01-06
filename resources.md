@@ -87,6 +87,7 @@ Collection of useful/cool links/resources/stuff. If there's anything you think I
 - [Tech Interview Handbook](https://yangshun.github.io/tech-interview-handbook/), a great guide on getting a job in tech.
 - [Kalpesh Krishna's grad school resources](https://martiansideofthemoon.github.io/2018/05/29/grad-resources.html).
 - [GPT-2 Visualized](http://jalammar.github.io/illustrated-gpt2/).
+- [Don’t Select Features, Engineer Them](https://dpananos.github.io/posts/2020/12/blog-post-28/) by Demetri Pananos about how feature selection methods are often unhelpful, and instead generating more features (via splines, in this post) often leads to a better model.
 
 ## Little Gems
 - [Disposable Email Addresses](http://guerrillamail.com/inbox)
