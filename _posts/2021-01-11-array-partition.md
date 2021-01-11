@@ -385,7 +385,7 @@ implementation (which is written in C). We only beat NumPy here because our
 distribution is a uniformly random. NumPy uses an introspective algorithm: it
 monitors the progress of the algorithm and can switch partition schemes partway
 to ensure good average case performance and optimal worst case performance.
-This is crucial for real-world data distributions to ensure consistent
+This is crucial with real-world data distributions to ensure consistent
 performance, but adds some overhead.
 
 I'm puzzled by why Alexandrescu's partition ends up being the slowest of the
