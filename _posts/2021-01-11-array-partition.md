@@ -290,7 +290,7 @@ partition. But unde the hood, `range` is doing bounds checks. You can see that
 more clearly if you rewrite the algorithm with a `while` loop:
 
 ```python
-def lomuto_partition_counting(arr, lo, hi):
+def lomuto_partition(arr, lo, hi):
     pivot = arr[hi]
     j = lo
     while j < hi:
@@ -300,7 +300,7 @@ def lomuto_partition_counting(arr, lo, hi):
         j += 1
  
     arr[lo], arr[hi] = arr[hi], arr[lo]
-    return lo, pivot
+    return lo
 ```
 
 You would expect Hoare's and Lomuto's to match, since they do one index check
