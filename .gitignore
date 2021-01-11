@@ -1,3 +1,7 @@
+# Ignore GemFile
+Gemfile
+Gemfile.lock
+
 # Ignore docs files
 _gh_pages
 _site
