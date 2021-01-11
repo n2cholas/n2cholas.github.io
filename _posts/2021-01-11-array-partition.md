@@ -23,20 +23,21 @@ respectively). In an [NDC 2016 talk](https://youtu.be/fd1_Miy1Clg), Andrei
 Alexandrescu introduces an alternative algorithm which he showed was more
 efficient for a variety of data distributions. 
 
-In this post, we'll focus on partition in the context of quicksort.  We'll
-implement, visualize, and time these algorithms. Then, we'll try to tease apart
-what makes one slower or faster than the other.  All the code to produce the
-timings, animations,and plots in this post can be found
+This focuses on partition in the context of quicksort.  We'll implement,
+visualize, and time these algorithms. Then, we'll try to tease apart what makes
+one slower or faster than the other.  All the code to produce the timings,
+animations, and plots in this post can be found
 [here](https://github.com/n2cholas/array-partition-comparison).
 
 ## Lomuto's Partition
 
-Below is a typically `lomuto_partition` as would be used in quicksort. Our
-inputs are the array of numbers `arr`, the start index `lo`, and the end index
-`hi`. Throughout this article, we can assume `lo=0` and `hi=len(arr)-1`. For
-quicksort, we may want to partition a contiguous subsection of the array, which
-is why the parameters are required. This functions returns the index at which
-the pivot element ends up in our partitioned array.
+Below is a typical implementation of `lomuto_partition` as would be used in
+quicksort. Our inputs are the array of numbers `arr`, the array start index
+`lo`, and the array end index `hi`. Throughout this article, we can assume
+`lo=0` and `hi=len(arr)-1`. For algorithms like quicksort, we want to partition
+a contiguous subsection of the array, which is why the start and end indices
+are required.  This functions returns the index at which the pivot element ends
+up in our partitioned array.
 
 ```python
 def lomuto_partition(arr, lo, hi):
@@ -62,20 +63,21 @@ B).  Elements to the right of `j` are unexplored.
 Every time `j` encounters an element smaller or equal to the pivot, it swaps it
 with the element at `lo`. We then increment `j` and `lo`. This way, `lo` is
 incremented beyond an element less than or equal to the pivot, maintaining
-invariant A. We know the element at `j` currently is greater than the pivot.
-Why? Since it was previously between `lo` and `j`, this implies that `j` passed
-over it before. If it was passed before but does not appear to the left of `lo`
-(i.e. was not swapped), that means it is not less than or equal to the pivot,
-thus it must be greater, thus maintaining invariant B.
+invariant A. We know the element currently at `j` is greater than the pivot.
+Why? Since that element was previously between `lo` and `j`, this implies that
+`j` passed over it in a previous iteration. If it was passed before but does
+not appear to the left of `lo` (i.e. was not swapped), that means it is not
+less than or equal to the pivot, thus it must be greater, thus maintaining
+invariant B.
 
-Finally, we swap the pivot from the end into its rightful place between the two
-sections, and return the index at which it was placed.
+After the main loop, we swap the pivot from the end into its rightful place
+between the two sections, and return the index at which it was placed.
 
 If talking about indices confuses you, here's a visualization of this algorithm
-running on a sample array. The heights of the bars represent the value of the
+running on a sample array. The heights of each bar represents the value of the
 element at that index. Light gray elements are less than or equal to the pivot,
-while black elements are greater. In red are the two pointers, `lo` and `j`,
-and in blue is the pivot element.
+while black elements are greater. In red two pointers, `lo` and `j`, are in red,
+while the pivot element is in blue.
 
 ![](/assets/images/posts/array-partition/lomuto_animation.gif#center)
 
@@ -86,7 +88,7 @@ next algorithm avoids this extra work by swapping each element at most once.
 ## Hoare's Partition
 
 Lomuto's partition maintains two pointers that splits the array into three
-sections: less than or equal, greater, unexplored. Hoare's partition also
+sections: less than or equal, greater, and unexplored. Hoare's partition also
 maintains two pointers, but splits the array into less than or equal,
 unexplored, and greater. 
 
@@ -111,13 +113,13 @@ def hoare_partition(arr, lo, hi):
 ```
 
 Our two pointers this time are `lo` and `hi`. `lo` moves from the left to the
-center, stopping when an element is greater than the pivot. `hi` moves from the
-right towards the center, stopping only when an element is less than or equal
-to the pivot. Once both pointers reach an element violating their side's
-condition, they swap, then proceed. 
+right, stopping when an element is greater than the pivot. `hi` moves from the
+right towards the left, stopping when an element is less than or equal to the
+pivot. Once both pointers reach an element violating their side's condition,
+they swap, then proceed. 
 
-At the end, once again, we do some clean-up, then swap the pivot into the
-dividing point then return that index.
+At the end, we do some clean-up, then swap the pivot into the dividing point
+then return that index.
 
 Once again, a visualization:
 
@@ -129,7 +131,7 @@ of bounds checking, which is wasteful. Our next approach solves this issue.
 
 ## Alexandrescu's Partition
 
-Hoare's partition was optimal in terms of swaps, but did a lot of array bounds
+Hoare's partition is optimal in terms of swaps, but it does lot of array bounds
 checking when incrementing the pointers. Alexandrescu's partition uses a
 *sentinel* to avoid excessively checking the indices.
 
@@ -143,7 +145,7 @@ while arr[lo] <= pivot and lo < hi:
 If we knew for sure that we would encounter an `arr[lo] > pivot` before `lo >=
 hi`, we wouldn't need to check `lo < hi`. To ensure this, we simply plant a
 sentinel value at the end of the array which is greater than pivot. This way,
-we know we'll stop incrementing `lo` once we reach the end.
+we know the loop will break at that element before `lo` goes out of bounds.
 
 Now, the code:
 
@@ -179,21 +181,21 @@ def alexandrescu_partition(arr, lo, hi):
 
 We select our pivot as `arr[lo]` this time, but it really doesn't matter.
 
-On the second line, we set the rightmost item to `pivot+1`: our sentinel which
-we know is greater than the pivot. We know our left most item is less than or
-equal to the pivot, since it is our pivot. Now in our main loop, we can
-increment our indices without bounds checking! We do the minimal index check to
-ensure our `lo` and `hi` indices don't cross.
+On the second line, we set the rightmost item to `pivot+1`: our sentinel, which
+we know is greater than the pivot. We know our leftmost item is less than or
+equal to the pivot, since it *is* our pivot. Now in our main loop, we can
+increment our indices without bounds checking! We do the minimal amount of
+index checking to ensure our `lo` and `hi` indices don't cross.
 
 You may observe something peculiar in the main loop: there are no swaps! The
-sentinel on the right side of the array is an element that did not exist
-before. We removed the element that was there before. We call this a *vacancy*.
-Now, in our main loop, as we increment our `lo` index, once we reach an element
-greater than partition, we can simply move it to the end to fill the vacancy.
-The vacany is now at `lo`. We similarly can fill that vacancy after our `hi`
-loop. In this partition scheme, a vacancy moves towards the middle of the
-array. At the end of the procedure, there is some fix-up code to re-insert the
-removed element in the right position.
+sentinel on the right side of the array is an element that did not exist in the
+original array. We removed the element that was there initially. We call this
+spot a *vacancy*.  Now, in our main loop, as we increment our `lo` index, and
+once we reach an element greater than pivot, we can simply move it to the end
+to fill the vacancy.  The new vacany is at `lo`. We similarly can fill that
+vacancy after our `hi` loop. In this partition scheme, the vacancy moves towards
+the middle of the array. At the end of the procedure, there is some fix-up code
+to re-insert the removed element in the right position.
 
 We illustrate the vacancy with a lighter shade of red, while the other index is
 the normal shade:
@@ -202,14 +204,17 @@ the normal shade:
 
 This algorithm seems to do some messy clean-up at the end. This is ok: most of
 our time is spent in the main loop, so we want to optimize that. The clean-up
-only happens once per partition, so it's negligible for large arrays.
+only happens once per function call, so it's negligible for large arrays.
 
-Note that this algorithm was slightly altered from the one presented during the
-talk. In the talk, the definition of partition used allowed elements equal to
+Note that this algorithm is slightly different from the one presented during
+the talk. In the talk, the definition of partition allowed elements equal to
 the pivot to appear on both the left and right sides. Our requirements are more
 strict: we want equal elements only on the left side. Using this stricter
 definition allows us to generalize our algorithms to the more general partition
 which rearranges element based on a predicate as opposed to a pivot element.
+Though, for the Alexandrescu partition, the user would need to provide a
+sentinel value that would evaluate false with the predicate, as the algorithm
+cannot determine this for some arbitrary and unknown predicate.
 
 ## Timings
 
@@ -221,7 +226,7 @@ measured in Python 3.8.5 on an Intel i5-8265U CPU @ 1.60GHz with 8gb of RAM on
 Ubuntu 20.04.
 
 A more thorough investigation would simulate a variety of data distributions to
-understand this algorithm's behaviour, but in this post, we're just interested
+understand these algorithms' behaviour, but in this post, we're just interested
 in understanding the high level effects of some of the design decisions of
 these algorithms. 
 
@@ -279,15 +284,15 @@ while the elegant Lomuto's partition does not.
 
 We saw the main innovation introduced by Alexandrescu's partition is the
 sentinel which eliminated a lot of index checking. Let's take a look at the
-number of index comparisons performed by these algorithms:
+number of index comparisons performed by these algorithms on random arrays.
 
 ![](/assets/images/posts/array-partition/num_ind_cmp.png#center)
 
 As expected, Alexandrescu's has the fewest by a landslide.
 
 In the Python code, you can't actually see the index comparisons for Lomuto's
-partition. But unde the hood, `range` is doing bounds checks. You can see that
-more clearly if you rewrite the algorithm with a `while` loop:
+partition. But under the hood, `range` needs to do these bounds checks. You can
+see that more clearly if you rewrite the algorithm with a `while` loop:
 
 ```python
 def lomuto_partition(arr, lo, hi):
@@ -311,7 +316,7 @@ changes after every swap.
 
 We explored Lomuto's, Hoare's, and Alexandrescu's partition schemes. While
 Lomuto's is the simplest and most elegant, it does the most extra work.
-Hoare's, for a bit more complexity, removes most of the extra swapping work.
+Hoare's, for a bit more complexity, removes the extra swapping work.
 Alexandrescu's uses a *sentinel* to avoid bounds checking. It also uses
 interesting half-swaps instead of full swaps, further saving work compared to a
 swap (due to not needing a temporary). With increasing complexity, we get
@@ -322,7 +327,7 @@ Since the [code is
 available](https://github.com/n2cholas/array-partition-comparison), try things
 you think I missed! A good start would be animating or counting operations on
 data distributions other than uniformly random integers. For example, a common
-real world array distribution is a partly sorted array. Share what you find!
+real world array distribution is a partially sorted array. Share what you find!
 
 ## Bonus: Cython
 
@@ -375,13 +380,13 @@ intervals.
 ![](/assets/images/posts/array-partition/cython_timings.png#center)
 
 Woah, our functions run almost 400x faster! Plus, based on our measurements,
-our Hoare partition implementation runs faster than the native NumPy
+our Hoare's partition implementation runs faster than the native NumPy
 implementation (which is written in C). We only beat NumPy here because our
-distribution is a uniformly random. NumPy uses an introspective algorithm,
-which essentially monitors the progress of the partition and can switch
-partition schemes partway to ensure good average case performance and optimal
-worst case performance. This is crucial for real-world data distributions to
-ensure consistent performance, but adds some overhead.
+distribution is a uniformly random. NumPy uses an introspective algorithm: it
+monitors the progress of the algorithm and can switch partition schemes partway
+to ensure good average case performance and optimal worst case performance.
+This is crucial for real-world data distributions to ensure consistent
+performance, but adds some overhead.
 
 I'm puzzled by why Alexandrescu's partition ends up being the slowest of the
 bunch after Cython compilation, and would love to hear a Cython expert's
