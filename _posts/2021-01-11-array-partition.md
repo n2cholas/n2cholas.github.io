@@ -161,7 +161,8 @@ def alexandrescu_partition(arr, lo, hi):
         hi -= 1
         while arr[hi] > pivot: 
             hi -= 1
-        if lo >= hi: break
+        if lo >= hi: 
+            break
         arr[lo] = arr[hi]
 
     if (lo == hi + 2):
@@ -169,7 +170,8 @@ def alexandrescu_partition(arr, lo, hi):
         lo -= 1
 
     arr[lo] = old_arr_hi
-    if (pivot < old_arr_hi): lo -= 1
+    if (pivot < old_arr_hi): 
+        lo -= 1
 
     arr[pivot_ind], arr[lo] = arr[lo], arr[pivot_ind]
     return lo
