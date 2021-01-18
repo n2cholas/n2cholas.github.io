@@ -16,6 +16,7 @@ Collection of useful/cool links/resources/stuff. If there's anything you think I
 - [Frieda Rong's list of useful resources](https://dynalist.io/d/kA2h39HOsn9w2UrPBtRmRUdO)
 - [UC Irvine Machine Leanring Repository](https://archive.ics.uci.edu/ml/index.php), tons of datasets.
 - [Awesome JAX](https://github.com/n2cholas/awesome-jax), a curated list of videos, blog posts, papers, and other resources on JAX.
+- [Measure Theory for Dummies] by Maya R. Gupta, a gentle introduction to measure theory for those interested in reading probability papers.
 
 ## Tools
 - [VSCode Live Share](https://code.visualstudio.com/blogs/2017/11/15/live-share), a real game-changer for pair programming.
