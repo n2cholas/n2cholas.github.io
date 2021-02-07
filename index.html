@@ -65,8 +65,47 @@ com</code>.
 </ul>
 <br>
 
+
+<h2>Blog Posts</h2>
+<div class="posts">
+  <table style="border-collapse: collapse; border: none; background: none;">
+  {% for post in paginator.posts %}
+    <tr style="border: none; background: none; margin: 0; padding: 0;">
+        <td style="border: none; background: none; margin: 0; padding-top: 0; padding-bottom: 0; white-space: nowrap; vertical-align: top;">
+            <h4 class="post-title">{{ post.date | date: "%b %Y"}}</h4>
+        </td>
+        <td style="border: none; background: none; margin: 0; padding-top: 0; padding-bottom: 0; vertical-align: top;">
+            <h4 class="post-title">
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                [<a onclick="toggle('{{ post.url }}-preview')" style="color: #268bd2;">preview</a>]
+            </h4>
+                <div id="{{ post.url }}-preview" style="display:none">
+                    <small><i>
+                    {{ post.content | markdownify | strip_html | truncatewords: 50 }}
+                    <a href="{{ site.baseurl }}{{ post.url }}">continue reading</a>
+                    </i></small><br><br>
+                </div>
+        </td> 
+  {% endfor %}
+  </tr>
+  </table>
+</div>
+<br>
+
+
 <h2>Talks</h2>
 <ul>
+    <li style="padding: 5px 0px;"> Clustering for Image Analysis (with Kanika Chopra)
+        <i>WiSTEM High School Student Conference,</i> Virtual, Feb 2021.
+        [<a onclick="toggle('clustering-description')" target="_blank">description</a>]
+        [<a href="https://docs.google.com/presentation/d/1KljHWmAQpbcJPeIm_w-k3u35gZPr3G80nCcUGR17SoI/edit?usp=sharing" target="_blank">slides</a>]
+        [<a href="https://colab.research.google.com/drive/1xX_wZUeGFLF07F-M7uaMcXkLNphjTHhu#scrollTo=ww07pcxZWmzO" target="_blank">notebook</a>]
+        <div id="clustering-description" style="display:none">
+            <br><i><small>
+            Learn about the basics of K-Means clustering as demonstrated on the MNIST dataset. We cover a basic introduction to Data Science & Machine Learning, Python & NumPy, and finally, implement K-Means.
+            </small></i><br><br>
+        </div>
+    </li>
     <li style="padding: 5px 0px;">Establishing a Productive Machine Learning Workflow
         <i>Hack the North++,</i> Virtual, Jan 2021.
         [<a onclick="toggle('productive-ml-video')" target="_blank">video</a>]
@@ -216,32 +255,6 @@ com</code>.
         </div>
     </li>
 </ul>
-<br>
-
-<h2>Blog Posts</h2>
-<div class="posts">
-  <table style="border-collapse: collapse; border: none; background: none;">
-  {% for post in paginator.posts %}
-    <tr style="border: none; background: none; margin: 0; padding: 0;">
-        <td style="border: none; background: none; margin: 0; padding-top: 0; padding-bottom: 0; white-space: nowrap; vertical-align: top;">
-            <h4 class="post-title">{{ post.date | date: "%b %Y"}}</h4>
-        </td>
-        <td style="border: none; background: none; margin: 0; padding-top: 0; padding-bottom: 0; vertical-align: top;">
-            <h4 class="post-title">
-                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-                [<a onclick="toggle('{{ post.url }}-preview')" style="color: #268bd2;">preview</a>]
-            </h4>
-                <div id="{{ post.url }}-preview" style="display:none">
-                    <small><i>
-                    {{ post.content | markdownify | strip_html | truncatewords: 50 }}
-                    <a href="{{ site.baseurl }}{{ post.url }}">continue reading</a>
-                    </i></small><br><br>
-                </div>
-        </td> 
-  {% endfor %}
-  </tr>
-  </table>
-</div>
 
 <script> 
 function toggle(id) {
