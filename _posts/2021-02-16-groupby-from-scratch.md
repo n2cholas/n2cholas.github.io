@@ -4,12 +4,13 @@ title: Groupby-by From Scratch "Part 2"
 comments: True
 ---
 
-The group-by (or split-apply-combine) pattern, illustrated below, is
-ubiquitious in data analysis. Essentially, you have data with predefined
-groups, and want to compute some summarizing statistics for each of those
-groups. For example, if you have a set high school students and want to
-estimate the average height by grade, you could accomplish this using a
-group-by. The figure below is from the [Python Data Science
+The group-by (or split-apply-combine) pattern, illustrated below, is ubiquitous
+in data analysis. Essentially, you have data with predefined groups and want to
+compute some summarizing statistics for each of those groups. For example,
+suppose you have a set of High School students and want to estimate the average
+height by grade. You would need to _split_ the dataset by grade, _apply_ the
+mean operation to each group, then _combine_ the means of all the groups
+together.  The figure below is from the [Python Data Science
 Handbook](https://github.com/jakevdp/PythonDataScienceHandbook).
 
 ![](/assets/images/posts/groupby/split-apply-combine.svg#center)
@@ -18,44 +19,54 @@ In Python, the Pandas DataFrame library provides a fast, general implementation
 of this algorithm. Jake VanderPlas wrote an excellent [blog
 post](https://jakevdp.github.io/blog/2017/03/22/group-by-from-scratch/) looking
 at implementing this algorithm from scratch using NumPy (and SciPy). He
-benchmarks the various approaches to help build some intuition about what's
-performant and what's not in NumPy. This post builds off of that one, so please
-read it first and come back here (which is why this post is labelled "Part 2").
+benchmarks the various approaches to help build intuition about writing fast
+NumPy code.  This post extends that one (which is why this post is labelled
+"Part 2"), so please read Jake's first then come back here.
 
 Jake looks at the general case where you want to compute a sum within each
 group, then return the results as a Python dictionary. The keys for the groups
-can be any value (strings, integers, etc.). In this post, I want to relax a few
-of those requirements to optimize the implementations and see how the results
-differ. Those relaxations are:
+can be any hashable type (strings, integers, etc.). In this post, I want to
+relax a few of those requirements to optimize the implementations and see how
+the results differ. Those relaxations are:
 
 1. The return value does not have to be a dictionary. It can be any type you
-   can index into using an a key to retrieve the result (e.g. a list or
+   can index into using a key to retrieve the result (e.g. a list or
    array).
-2. The inputs are always in NumPy arrays.
-3. The keys are integers from 0 to $n$.
-4. The maximum key, $n$, is known in advance.
+2. The inputs are always NumPy arrays.
+3. The keys are integers from 0 to $k$.
+4. The maximum key, $k$, is known in advance.
 
-(1) seems reasonable enough, and should save us some time since we don't have
-to always construct a dictionary. (2) is realistic, since you almost always
+(1) seems reasonable, and should save us some time since we can avoid
+converting the container types. (2) is realistic, since you almost always
 want to manipulate numeric data in NumPy arrays instead of Python lists. (3) is
 fine since we can always map our arbitrary labels to integers in advance. (4)
 seems restrictive, but in practice, you often know how many groups you have in
-your data. For the high school students example, you know there are 4 grades
-(at least in Canada).  If you are using a group-by to perform unsupervised
-clustering, many algorithms require you to decide the number of clusters in
-advance.
+your data. For the High School students example, you know there are 4 grades
+(at least in Canada) apriori.  If you are using a group-by to perform
+unsupervised clustering, many algorithms require you to decide the number of
+clusters in advance.
 
 We'll see that these relaxations allow us to simplify the implementations and
 improve performance.
 
+The rest of this post is structured as follows. First, we update the Jake's
+implementations according to our new constraints. The pandas/Python
+implementations see very little change, while the NumPy based solutions see large 
+improvements. We do some big-O time complexity analysis to understand where we
+gain efficiency. Next, we show some new implementations that these
+relaxations afford us and go into more detail about these (as they're not in
+Jake's post). Finally, we benchmark these implementations to see if the
+conclusions from our analysis hold in practice.
+
+All the code is available in
+[this](https://colab.research.google.com/drive/1X0tIA_MmYVQVo--6SVa90mcnAMa55Bm1?usp=sharing)
+Colab.  It's is similar to Jake's, except we use `time.perf_counter()` to time,
+`seaborn` to plot, and include 95% confidence bands in the line-plots.
+Notable, the data distributions are the same.
+
 ## Updated Implementations
 
-The timing and plotting code is provided at the bottom of this post, but it's
-mostly the same as what Jake used. The only difference is we use
-`time.perf_counter()` to time, `seaborn` to plot, and include 95% confidence
-bands in the line-plots. The data distributions are the same.
-
-We use the following arrays as our running group-by data:
+We use the following arrays as our example data:
 
 ```python
 import numpy as np
@@ -65,10 +76,13 @@ vals = np.asarray([1, 2, 3, 4, 5, 6])
 max_key = keys.max()
 ```
 
-Simple enough and identical to Jake's example, except our keys are integers and
-we pre-compute the max key.
+This is the same as Jake's running example, except our keys are integers and we
+pre-compute the max key.
 
-First up, Pandas:
+### Non-NumPy Approaches
+
+Our non-NumPy approaches don't benefit much from our updated rules. First, the
+most idiomatic and common solution in Python: Pandas.
 
 ```python
 import pandas as pd
@@ -87,10 +101,13 @@ dtype: int64
 </pre>
 </div>
 
-The code is nearly identical, except we remove the `.to_dict()`. Not much to
-talk about here.
+The code is nearly identical, except we remove the `.to_dict()`, so the result
+is a Pandas `Series`.
 
-Next up, the dictionary based implementation. 
+Since we know that the keys are from 0 to `max_key` in advance, we don't have
+to use a `defaultdict` for the dictionary-based approach, and can instead
+prepopulate with 0s (shown below). In the end, we'll see this doesn't make a
+big difference in performance.
 
 ```python
 def dict_groupby(keys, vals, max_key=None):
@@ -107,13 +124,22 @@ dict_groupby(keys, vals, max_key)
 </pre>
 </div>
 
-Since we know that the keys are from 0 to `max_key` in advance, we don't have
-to use a `defaultdict`, and can instead prepopulate with 0s. In the end, we'll
-see this doesn't make a big difference in performance.
+The itertools implementaton does not change, so I excluded the code (it's in
+Jake's post). 
 
-The itertools implementaton does not benefit from our relaxations, so I exclude
-the code (it's in Jake's post). Now, we get into more interesting ways of
-computing the group-by then sum. 
+### NumPy-based Approaches
+
+The additional information allows us to improve the _asymptotic behaviour_ of
+these NumPy-based approaches. That is, the behaviour as the dataset size ($n$)
+and number of groups ($k$) grows large.  This post assumes you're familiar with
+this concept,
+[here](https://www.freecodecamp.org/news/big-o-notation-simply-explained-with-illustrations-and-video-87d5a71c0174/)
+is a great explanation if you're not. 
+
+In the original problem, all these implementations require `np.unique` in
+order to determine the keys. `np.unique` sorts the data, which is an $O(n \log
+n)$ operation, where $n$ is the length of the dataset.  Knowing our keys are 0
+to $k$ where $k$ is known in advance allows us avoid this sort to save time.
 
 ```python
 def masking_groupby(keys, vals, max_key):
@@ -127,10 +153,12 @@ masking_groupby(keys, vals, max_key)
 </pre>
 </div>
 
-The relaxations afford us a more efficient implementation here. We can
-construct a `list` instead of a `dict` due to our keys being integer from 0 to
-`max_key`. For the same reason, we avoid the (relatively expensive) `np.unique`
-call and just iterate over the range directly.
+Every boolean mask computation takes $O(n)$ time, which we do for each key,
+resulting in $O(nk)$ time. This is more efficient than the original
+implementation, which requires $O(n \log n + nk)$ time due to the sort.
+
+The other small improvement is constructing a `list` instead of a `dict` due
+to our keys being integer from 0 to `max_key`.
 
 The `np.bincount` implementation becomes very sleek:
 
@@ -146,13 +174,14 @@ array([5., 7., 9.])
 </pre>
 </div>
 
-Once again, we avoid `np.unique` and constructing a `dict`. Since we have the
-`max_key`, we can tell bincount how much space to pre-allocate for the array,
-which saves time on potential array resizing. In general, the less Python code
-we have and the more time we spend in NumPy's C++ code, the faster the
-implementation. We'll see if that holds true here with this one-liner. 
+Since we have the `max_key`, we can tell bincount how much space to
+pre-allocate for the array (via `minlength`), which saves time on potential
+array resizing. This approach only takes $O(n)$ time, since under the hood, the
+function just iterates through the array once and adds each value to the
+appropriate bucket.
 
-Now the sparse implementation:
+For the sparse implementation, we again we save time by skipping `np.unique`
+(and conversion to `dict`).
 
 ```python
 from scipy import sparse
@@ -172,9 +201,13 @@ matrix([[5],
 </pre>
 </div>
 
-Again, we save time on the `np.unique` and conversion to `dict`. Our output
-seems a bit strange now, but this still gives us the desired property of being
-able to index into it to get our sum:
+Since the sparse representation essentially stores a key-value lookup, the
+time complexity here is once again $O(n)$. If this was a dense matrix instead
+of sparse (i.e. if we summed up the 0s that this sparse matrix hides), it would
+be more expensive (which we'll see below).
+
+Our output seems a bit strange now, but this still gives us the desired
+property of being able to index into it to get our sum:
 
 ```python
 x = sparse_groupby(keys, vals, max_key)
@@ -201,7 +234,8 @@ array([5, 7, 9])
 ## New Implementations
 
 The convenient properties of our keys afford us some alternative
-implementations. First:
+implementations. We'll cover these in more detail since they were not in Jake's
+post. First:
 
 ```python
 def arange_groupby(keys, vals, max_key):
@@ -221,15 +255,16 @@ matrix approach. Instead of having integer keys, we convert to a "one hot"
 representation (which you may be familiar with from other machine learning
 tasks). Essentially, each label becomes a vector with `max_key` dimensions. All
 the values of that vector are 0 except at the index of the label. For example,
-if `max_key = 2` and our `key=0`, our one hot vector would be `[1, 0, 0]` (1
-    only in the 0th position).
+if `max_key = 2` and our `key = 0`, our one hot vector would be `[1, 0, 0]` (1
+only in the 0th position).
 
-`np.arange(max_key+1) = [0, 1, 2]`. If
-`key=0`, then `(key == [0, 1, 2]) = [True, False, False]`, which can be
-interpreted as `[1, 0, 0]`, which is our one hot representation. We want to obtain the one hot
-representation for every key in our collection, which we achieve using a
+Note that `np.arange(max_key+1) = [0, 1, 2]`. If `key = 0`, then `(key == [0, 1,
+2]) = [True, False, False]`, which can be interpreted as `[1, 0, 0]`, which is
+our one hot representation. We want to obtain the one hot representation for
+every key in our collection, which we achieve using a
 [broadcasting](https://numpy.org/devdocs/user/theory.broadcasting.html) trick.
-The documentation linked provides an excellent explanation which I highly encourage you read. We use this trick to get:
+The documentation linked provides an excellent explanation which I highly
+encourage you read. We use this trick to get:
 
 ```python
 one_hot = keys == np.arange(max_key+1)[:,None]
@@ -246,7 +281,14 @@ array([[1, 0, 0, 1, 0, 0],
 Here, each column in our matrix represents the one hot representation of each
 key. Now, when we use `np.dot`, we are computing the inner product between each
 row of this matrix and the entire values vector. This gives us the sum within
-each group (I'll leave it as an exercise to you to verify that).
+each group (I'll leave it as an exercise to you to verify that). It's
+essentially the same as the summation in the sparse COO matrix case.
+
+In terms of time complexity, the one_hot computation compares every value in
+our data to every potential key, resulting in $O(nk)$ time. The matrix
+multiplication is $O(n)$ for each row (since you're multiplying $n$ values and
+summing), so it's a total of $O(nk)$ for the entire dot product. This result in
+a total running time of $O(nk+nk) = O(nk)$.
 
 Our next implementation leverages a one hot representation as well:
 
@@ -291,9 +333,15 @@ array([[1., 0., 0.],
 </pre>
 </div>
 
-This matrix is the transpose of what we had with `arange_groupby`, which is why we transpose it before applying the dot product.
+This matrix is the transpose of what we had with `arange_groupby`, which is why
+we transpose it before applying the dot product.
 
-Finally, we can use another built-in function for performing a `group-by`, this time in SciPy:
+The time complexity is the same as the `arange` case. The advanced indexing
+hides some of the operations, but you still have to materialize $nk$ values, then do the same
+multiplication.
+
+Finally, we can use another built-in function for performing a group-by, this
+time in SciPy:
 
 ```python
 from scipy import ndimage
@@ -310,20 +358,23 @@ array([5., 7., 9.])
 </pre>
 </div>
 
+I'm not sure how this is implemented under the hood, but (spoiler
+alert!) the timings below indicate the time complexity is $O(n)$.
+
 ## Timings
 
-The timings below were measured in Python 3.8.5 on an Intel i5-8265U CPU @
-1.60GHz with 8gb of RAM on Ubuntu 20.04. For a baseline, below are timings of
-the implementations provided in Jake's blog post:
+The timings were measured in Python 3.8.5 on an Intel i5-8265U CPU @ 1.60GHz
+with 8gb of RAM on Ubuntu 20.04. For a baseline, below are timings of the
+implementations provided in Jake's blog post:
 
 ![](/assets/images/posts/groupby/original_timings.svg#center)
 
 The colored bands around the lines are 95% confidence intervals (for most of
 the implementations it's invisible). Notice both axes are log. As shown in
 Jake's post, the Pandas implementation really starts to shine as we increase
-the dataset size. At smaller sizes, the numpy-based implementations all do
-well, with the pure-numpy (i.e. no Python `dict`s or `list`s) pulling ahead.
-Masking slows down significantly with larger group sizes: at every itation of
+the dataset size. At smaller sizes, the NumPy-based implementations all do
+well, with the pure-NumPy (i.e. no Python `dict`s or `list`s) pulling ahead.
+Masking slows down significantly with larger group sizes: at every iteration of
 the masking loop (which is 1 per unique key), we have to evaluate a boolean
 mask for the entire dataset, which gets expensive.
 
@@ -334,18 +385,13 @@ Below are timings for the updated implementations:
 For the updated implementations, we observe some similar trends: the Pandas
 implementation goes from slowest to among the fastest as our data size
 increases, while the other increase with generally the same slope. When we
-increase the number of groups, the masking and one-hot implementations suffer.
+increase the number of groups, the masking and one-hot implementations suffer,
+since their time complexity depends on the number of groups $k$.
 
 The pure-numpy implementations benefit the most from our relaxations. All of
-them used `np.unique`, and removing that call improved speed across the board.
-In particular, the `np.bincount`-based implementation is now the fastest at all
-dataset and group sizes.
-
-The one-hot implementations slow down much more quickly than the others when we
-increase the group size, similar to the masking solution. The matrix
-multiplication for those wastes computation since it is a dense multiplication
-instead of sparse. That is, we are multiplying a lot of 0s that could just be
-skipped (like in the sparse implementation does).
+them used `np.unique`, and removing that call improved speed across the board
+(as predicted by our big-O analysis).  In particular, the `np.bincount`-based
+implementation is now the fastest at all dataset and group sizes.
 
 Below, we show the relative speed-up:
 
@@ -356,14 +402,6 @@ biggest benefit (bincount, sparse, and masking), while the others saw
 negligible improvements. This is expected: as the data size grows large,
 container and key conversions are just small overheads compared to the large
 computation.
-
-## Conclusion
-
-The main takeaway here is that using additional information and relaxing
-constraints can help accelerate even simple algorithms. In particular, we saw
-the biggest benefit from removing `np.unique` since we knew the range of our
-keys apriori.  Our pure numpy based approaches to beat Pandas across the board
-with this advantage.
 
 <br>
 
