@@ -58,6 +58,18 @@ relaxations afford us and go into more detail about these (as they're not in
 Jake's post). Finally, we benchmark these implementations to see if the
 conclusions from our analysis hold in practice.
 
+For a quick reference, here are quicklinks to each updated implementation:
+
+1. [Pandas](#pandas)
+2. [Dictionary](#dict)
+3. [Masking](#masking)
+4. [`np.bincount`](#bincount)
+5. [Sparse](#sparse)
+6. [`np.arange`](#arange)
+7. [`np.eye`](#eye)
+8. [`scipy.ndimage.sum`](#ndimage)
+9. [`np.add.at`](#at)
+
 All the code is available in
 [this](https://colab.research.google.com/drive/1X0tIA_MmYVQVo--6SVa90mcnAMa55Bm1?usp=sharing)
 Colab.  It's is similar to Jake's, except we use `time.perf_counter()` to time,
@@ -84,6 +96,7 @@ pre-compute the max key.
 Our non-NumPy approaches don't benefit much from our updated rules. First, the
 most idiomatic and common solution in Python: Pandas.
 
+<a name="pandas"></a>
 ```python
 import pandas as pd
 
@@ -109,6 +122,7 @@ to use a `defaultdict` for the dictionary-based approach, and can instead
 prepopulate with 0s (shown below). In the end, we'll see this doesn't make a
 big difference in performance.
 
+<a name="dict"></a>
 ```python
 def dict_groupby(keys, vals, max_key=None):
     count = {k: 0 for k in range(max_key+1)}
@@ -141,6 +155,7 @@ order to determine the keys. `np.unique` sorts the data, which is an $O(n \log
 n)$ operation, where $n$ is the length of the dataset.  Knowing our keys are 0
 to $k$ where $k$ is known in advance allows us avoid this sort to save time.
 
+<a name="masking"></a>
 ```python
 def masking_groupby(keys, vals, max_key):
     return [vals[keys == key].sum() for key in range(max_key+1)]
@@ -162,6 +177,7 @@ to our keys being integer from 0 to `max_key`.
 
 The `np.bincount` implementation becomes very sleek:
 
+<a name="bincount"></a>
 ```python
 def bincount_groupby(keys, vals, max_key=None):
     return np.bincount(keys, weights=vals, minlength=max_key+1)
@@ -183,6 +199,7 @@ appropriate bucket.
 For the sparse implementation, we again we save time by skipping `np.unique`
 (and conversion to `dict`).
 
+<a name="sparse"></a>
 ```python
 from scipy import sparse
 
@@ -237,6 +254,7 @@ The convenient properties of our keys afford us some alternative
 implementations. We'll cover these in more detail since they were not in Jake's
 post. First:
 
+<a name="arange"></a>
 ```python
 def arange_groupby(keys, vals, max_key):
     one_hot = keys == np.arange(max_key+1)[:,None]
@@ -292,6 +310,7 @@ a total running time of $O(nk+nk) = O(nk)$.
 
 Our next implementation leverages a one hot representation as well:
 
+<a name="eye"></a>
 ```python
 def eye_groupby(keys, vals, max_key):
     one_hot = np.eye(max_key+1)[keys]
@@ -340,9 +359,52 @@ The time complexity is the same as the `arange` case. The advanced indexing
 hides some of the operations, but you still have to materialize $nk$ values, then do the same
 multiplication.
 
+Our next implementation leverages unbuffered operations. Before showing it,
+consider the following:
+
+```python
+def incorrect_at_groupby(keys, vals, max_key):
+    s = np.zeros(max_key+1)
+    s[keys] += vals
+    return s
+
+incorrect_at_groupby(keys, vals, max_key)
+```
+<div class="output_block">
+<pre class="output">
+array([4., 5., 6.])
+</pre>
+</div>
+
+We used advanced indexing to pull out the right position in `s` depending on
+the key, then added the corresponding item in `vals` to it. The problem is,
+this is a buffered operation, which means the array is not updated
+sequentially, so only the last update per index is observed. Since the last
+occurence of 0, 1, and 2 in `keys` correspond to 4, 5, and 6 in `vals`, those
+are the values we see. We can leverage
+[`np.add.at`](https://numpy.org/doc/stable/reference/generated/numpy.ufunc.at.html)
+to do this same operation in an _unbuffered_ manner, which means each occurence
+will accumulate: 
+
+<a name="at"></a>
+```python
+def at_groupby(keys, vals, max_key):
+    s = np.zeros(max_key+1)
+    np.add.at(s, keys, vals)
+    return s
+
+at_groupby(keys, vals, max_key)
+```
+<div class="output_block">
+<pre class="output">
+array([5., 7., 9.])
+</pre>
+</div>
+
 Finally, we can use another built-in function for performing a group-by, this
 time in SciPy:
 
+<a name="ndimage"></a>
 ```python
 from scipy import ndimage
 
@@ -358,8 +420,9 @@ array([5., 7., 9.])
 </pre>
 </div>
 
-I'm not sure how this is implemented under the hood, but (spoiler
-alert!) the timings below indicate the time complexity is $O(n)$.
+This method is implemented using `np.bincount` under the hood, and thus will be
+strictly slower (due to additional work to account for multidimensional
+inputs). Thus, it will not be included in our benchmarks below.
 
 ## Timings
 
@@ -454,3 +517,8 @@ funcs = [pandas_groupby, dict_groupby, itertools_groupby,
 timings_sizes = bench(funcs, 10, sizes, n_iter=100)
 timings_groups = bench(funcs, n_groups, 10000, n_iter=100)
 ```
+
+
+## Updates
+
+2021-02-21: Removed `ndimage` from timings, added `at_groupby`.
