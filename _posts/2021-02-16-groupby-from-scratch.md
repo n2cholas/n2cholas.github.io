@@ -74,7 +74,7 @@ All the code is available in
 [this](https://colab.research.google.com/drive/1X0tIA_MmYVQVo--6SVa90mcnAMa55Bm1?usp=sharing)
 Colab.  It's is similar to Jake's, except we use `time.perf_counter()` to time,
 `seaborn` to plot, and include 95% confidence bands in the line-plots.
-Notable, the data distributions are the same.
+Notably, the data distributions are the same.
 
 ## Updated Implementations
 
