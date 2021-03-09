@@ -142,7 +142,7 @@ Recall the plot above gives us the _density_ of our probability distribution, wh
 Since $g$ and $q$ have different densities, we want to essentially resample points that we drew from $g$ to better match $q$.
 We do this by accepting some points and rejecting others.
 
-If the density $q(\theta)$ is relatively large when $g(\theta)$ is relatively large, we should accept more points around that $\theta$.
+If the density $q(\theta)$ is relatively large when $g(\theta)$ is relatively small, we should accept more points around that $\theta$.
 If the density $q(\theta)$ is relatively small when $g(\theta)$ is relatively large, we should reject more points around that $\theta$.
 The ratio $\frac{q(\theta)}{M g(\theta)}$ gives us this information.
 We only need $M$ to ensure $Mg(\theta) > q(\theta)$ for all $\theta$, so $0 \le \frac{q(\theta)}{M g(\theta)} \le 1$, allowing the ratio to be used as the probability of acceptance.
