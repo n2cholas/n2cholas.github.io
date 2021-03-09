@@ -224,7 +224,7 @@ Since $Mg(\theta)$ will likely be quite different from $q(\theta)$, we'll end up
 
 Importance sampling improves this with one key observation: often, the property of interest is an expectation.
 If we have samples from $q$, we could just average those samples to estimate this property (for the variance, we average $(\theta_i - \hat \mu)^2$).
-If we have samples from $g$, we can do a _weighted average_ where we downweight points that would be more likely to be sampled from $q$ (compared to $g$), and upweight points that would be more likely to be sampled from $q$ (compared to $g$).
+If we have samples from $g$, we can do a _weighted average_ where we downweight points that would be less likely to be sampled from $q$ (compared to $g$), and upweight points that would be more likely to be sampled from $q$ (compared to $g$).
 
 These weights come from the ratio $\frac{q(\theta)}{g(\theta)}$:
 
@@ -275,7 +275,7 @@ Nice, we get (approximately) the same answer!
 
 We can compute the _effective sample size_ for importance sampling using this formula:
 
-$$\tilde w_i = \frac{w_i}{\sum_{i=1}^n w_i}$$
+$$\tilde w_i = \frac{w_i}{\sum_{j=1}^n w_j}$$
 
 $$n_{ESS} = \frac{1}{\sum_{i=1}^n \tilde w_i^2} $$
 
