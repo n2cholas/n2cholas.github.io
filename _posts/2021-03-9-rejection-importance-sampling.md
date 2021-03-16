@@ -154,7 +154,8 @@ def acceptance_probability(theta):
     return q_density(theta) / (M*g_density(theta))
 
 fig, ax = plt.subplots()
-ax.plot(acceptance_probability(np.linspace(-3, 3, 100)))
+thetas = np.linspace(-3, 3, 100)
+ax.plot(thetas, acceptance_probability(thetas))
 ```
 ![](/assets/images/posts/rejection-importance-sampling/plot6.svg#center)
 
