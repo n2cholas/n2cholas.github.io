@@ -17,6 +17,7 @@ Collection of useful/cool links/resources/stuff. If there's anything you think I
 - [UC Irvine Machine Leanring Repository](https://archive.ics.uci.edu/ml/index.php), tons of datasets.
 - [Awesome JAX](https://github.com/n2cholas/awesome-jax), a curated list of videos, blog posts, papers, and other resources on JAX.
 - [Measure Theory for Dummies](https://vannevar.ece.uw.edu/techsite/papers/documents/UWEETR-2006-0008.pdf) by Maya R. Gupta, a gentle introduction to measure theory for those interested in reading probability papers.
+- [Colab P100](https://colab.research.google.com/drive/1D6krVG0PPJR2Je9g5eN_2h6JP73_NUXz), this notebook always gets a 16gb P100 on Colab. Make a copy of this!
 
 ## Tools
 - [VSCode Live Share](https://code.visualstudio.com/blogs/2017/11/15/live-share), a real game-changer for pair programming.
@@ -39,7 +40,9 @@ Collection of useful/cool links/resources/stuff. If there's anything you think I
 - [Einops](https://arogozhnikov.github.io/einops/pytorch-examples.html), write more expressive tensor manipulations.
 - [LaTeX equations in PowerPoint](https://www.fast.ai/2019/06/17/latex-ppt/), a nice add-on and guide by Jeremy Howard.
 - [PlotNeuralNet](https://github.com/HarisIqbal88/PlotNeuralNet), latex generator for beautiful neural network visualizations.
+- [NN-SVG](https://alexlenail.me/NN-SVG/LeNet.html), an SVG generator for neural network visualizations.
 - [Markdown Slides](https://github.com/dadoomer/markdown-slides), create beautiful Reveal.js slides in markdown. Supports LaTeX, code blocks, animations, and media!
+- [NBViewer](https://nbviewer.jupyter.org/), view Jupyter notebooks on GitHub (GitHub often has trouble loading large notebooks).
 
 ## Courses
 - [Advanced ML/DL Courses](https://www.reddit.com/r/MachineLearning/comments/fdw0ax/d_advanced_courses_update/) (advanced meaning PhD level)
@@ -91,6 +94,8 @@ Collection of useful/cool links/resources/stuff. If there's anything you think I
 - [Kalpesh Krishna's grad school resources](https://martiansideofthemoon.github.io/2018/05/29/grad-resources.html).
 - [GPT-2 Visualized](http://jalammar.github.io/illustrated-gpt2/).
 - [Don’t Select Features, Engineer Them](https://dpananos.github.io/posts/2020/12/blog-post-28/) by Demetri Pananos about how feature selection methods are often unhelpful, and instead generating more features (via splines, in this post) often leads to a better model.
+- [GNU Terminal Docs](https://tiswww.case.edu/php/chet/readline/readline.html), learn to be more productive using the GNU Terminal!
+- [Useful Inequalities Cheatsheet](http://www.lkozma.net/inequalities_cheat_sheet/) by László Kozma.
 
 ## Little Gems
 - [Disposable Email Addresses](http://guerrillamail.com/inbox)
