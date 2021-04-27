@@ -96,6 +96,7 @@ Collection of useful/cool links/resources/stuff. If there's anything you think I
 - [Don’t Select Features, Engineer Them](https://dpananos.github.io/posts/2020/12/blog-post-28/) by Demetri Pananos about how feature selection methods are often unhelpful, and instead generating more features (via splines, in this post) often leads to a better model.
 - [GNU Terminal Docs](https://tiswww.case.edu/php/chet/readline/readline.html), learn to be more productive using the GNU Terminal!
 - [Useful Inequalities Cheatsheet](http://www.lkozma.net/inequalities_cheat_sheet/) by László Kozma.
+- [Kaggle Hidden Gems](https://www.kaggle.com/headsortails/hidden-gems-a-collection-of-underrated-notebooks#hidden-gems---the-complete-collection), a collection of underrated notebooks to learn from.
 
 ## Little Gems
 - [Disposable Email Addresses](http://guerrillamail.com/inbox)
