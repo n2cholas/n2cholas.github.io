@@ -97,6 +97,7 @@ Collection of useful/cool links/resources/stuff. If there's anything you think I
 - [GNU Terminal Docs](https://tiswww.case.edu/php/chet/readline/readline.html), learn to be more productive using the GNU Terminal!
 - [Useful Inequalities Cheatsheet](http://www.lkozma.net/inequalities_cheat_sheet/) by László Kozma.
 - [Kaggle Hidden Gems](https://www.kaggle.com/headsortails/hidden-gems-a-collection-of-underrated-notebooks#hidden-gems---the-complete-collection), a collection of underrated notebooks to learn from.
+- [A Recipe for Training Neural Networks](http://karpathy.github.io/2019/04/25/recipe/) by Andrej Karpathy.
 
 ## Little Gems
 - [Disposable Email Addresses](http://guerrillamail.com/inbox)
