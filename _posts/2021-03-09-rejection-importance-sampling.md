@@ -42,7 +42,7 @@ But as mentioned, we don't know how to sample from $q$.
 
 Before getting into the algorithms, we'll set up some functions we need.
 
-First, the (unnormalized) density for $q$. 
+First, the (unnormalized) density for $q$.
 We don't care what the function is, only that we can evaluate it at various points.
 So, we'll use the same function Professor Vehtari provides in his [demo](https://github.com/avehtari/BDA_py_demos/blob/master/demos_ch10/demo10_1.ipynb).
 
@@ -174,7 +174,7 @@ ax.scatter(g_samples[5], acceptance_probabilities[5], c='red')
 To pull one example, sample 0.6045 (in red) has an acceptance probability of 41.89%.
 Also, as expected, this has the same shape as the previous plot, since we're showing the same function with our samples as inputs instead of arbitrary values.
 
-Now, onto the actual rejection sampling. 
+Now, onto the actual rejection sampling.
 To randomly accept and reject points based on their probability, we'll draw a (uniformly) random number between 0 and 1 for each sample.
 If this draw is less than the acceptance probability, we'll keep the point, otherwise, we'll get reject the point:
 
@@ -244,7 +244,7 @@ We can use these weights along with `g_samples` to compute the variance of $q$ b
 def estimate_variance2(thetas, weights):
     normalizing_val = np.sum(weights)
     mu = np.sum(weights*thetas) / normalizing_val
-    # Below, we are doing E[(\theta-\mu)^2]. 
+    # Below, we are doing E[(\theta-\mu)^2].
     # Want to weight each item in the average, not each \theta_i.
     return np.sum(weights*(thetas - mu)**2) / normalizing_val
 ```
