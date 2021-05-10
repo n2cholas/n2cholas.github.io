@@ -3,4 +3,6 @@ repos:
     rev: v3.4.0
     hooks:
     -   id: trailing-whitespace
+        files: '.*\.md'
     -   id: end-of-file-fixer
+        files: '.*\.md'
