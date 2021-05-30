@@ -118,7 +118,8 @@ Collection of useful/cool links/resources/stuff. If there's anything you think I
 - [`difflib.get_close_matches`](https://twitter.com/pybites/status/1301956083930607617), return "good enough" matches for strings.
 - [`jax.mask` lets you use ragged arrays with vmap!](https://twitter.com/remilouf/status/1306180863101743109?s=20)
 - [Stein's Paradox](https://twitter.com/i/web/status/1298274201682325509), fun statistics paradox.
-- [Visualize Neural Network Architectures](https://twitter.com/ilkedemir/status/1327553154506887168)
+- [Visualize Neural Network Architectures](https://twitter.com/ilkedemir/status/1327553154506887168).
+- [Better LaTeX defaults](https://twitter.com/dustinvtran/status/1398129705660805121?s=20).
 
 ## Resources I've helped put together:
 - [First Steps for Learning Data Science](https://nicholasvadivelu.com/2020/08/30/learn-data-sci/)
